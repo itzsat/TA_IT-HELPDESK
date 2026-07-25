@@ -1,0 +1,84 @@
+[
+  {
+    "kondisi": [
+      "cannot_print"
+    ],
+    "kesimpulan": "Masalah Printer",
+    "bobot": 0.7
+  },
+  {
+    "kondisi": [
+      "cannot_print",
+      "printer_offline"
+    ],
+    "kesimpulan": "Printer Offline",
+    "bobot": 0.85
+  },
+  {
+    "kondisi": [
+      "cannot_access_email"
+    ],
+    "kesimpulan": "Tidak Bisa Akses Email",
+    "bobot": 0.75
+  },
+  {
+    "kondisi": [
+      "authentication_error"
+    ],
+    "kesimpulan": "Masalah Autentikasi",
+    "bobot": 0.7
+  },
+  {
+    "kondisi": [
+      "authentication_error",
+      "forgot_password"
+    ],
+    "kesimpulan": "Lupa Password",
+    "bobot": 0.9
+  },
+  {
+    "kondisi": [
+      "cannot_connect_vpn"
+    ],
+    "kesimpulan": "Masalah Koneksi VPN",
+    "bobot": 0.75
+  },
+  {
+    "kondisi": [
+      "cannot_connect_vpn",
+      "vpn_timeout"
+    ],
+    "kesimpulan": "VPN Timeout",
+    "bobot": 0.85
+  },
+  {
+    "kondisi": [
+      "no_internet"
+    ],
+    "kesimpulan": "Tidak Ada Internet",
+    "bobot": 0.8
+  },
+  {
+    "kondisi": [
+      "wifi_not_detected"
+    ],
+    "kesimpulan": "WiFi Tidak Terdeteksi",
+    "bobot": 0.8
+  },
+  {
+    "kondisi": [
+      "slow_computer",
+      "high_cpu_usage"
+    ],
+    "kesimpulan": "Performa Komputer Lambat",
+    "bobot": 0.85
+  },
+  {
+    "kondisi": [
+      "application_crash",
+      "error_message_shown"
+    ],
+    "kesimpulan": "Aplikasi Crash",
+    "bobot": 0.8
+  }
+]

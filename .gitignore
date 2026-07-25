@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+.npm/
+.pnpm-store/
+
+# Supabase secrets
+.env
+.env.local
+.env*.local
+
+# Supabase local files
+supabase/.temp/
+supabase/.branches/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build files
+dist/
+build/
+.next/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test / scratch scripts (tidak perlu di repo)
+test-*.js
+test-*.ts
+check_rls.js
+fix_db.js
+refactor*.js
+src/test-*.js
+
+# Sensitive / secret files
+.env.local
+.env*.local

@@ -157,8 +157,4 @@ npm run build        # Build untuk production
 **Login gagal?**
 - Pastikan user sudah dibuat di Supabase Dashboard → Authentication → Users
 
----
 
-## 📄 Lisensi
-
-Proyek ini dibuat untuk keperluan Tugas Akhir. Hak cipta © 2026 Bagas Satria Pamungkas.

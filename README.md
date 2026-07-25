@@ -1,7 +1,6 @@
 # 🖥️ IT Helpdesk App
 
-Aplikasi IT Helpdesk berbasis web dengan sistem tiket, knowledge base, notifikasi real-time, dan NLP (Natural Language Processing) untuk rekomendasi solusi otomatis.
-
+Aplikasi IT Helpdesk berbasis web dengan algoritma Forward Chaining dengan sistem tiket, knowledge base, notifikasi real-time, 
 > **Tugas Akhir** — Bagas Satria Pamungkas (4342211001)  
 > Dibangun dengan React + TypeScript + Supabase
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../utils/supabase/SupabaseClient';
+import { toast } from 'sonner';
 
 export interface Notification {
   id: number;
@@ -74,7 +75,17 @@ export function useNotifications(userId: string | null) {
           filter: `user_id=eq.${userId}`,
         },
         (payload) => {
-          setNotifications(prev => [payload.new as Notification, ...prev]);
+          const newNotif = payload.new as Notification;
+          setNotifications(prev => [newNotif, ...prev]);
+          
+          // Trigger visual toast popup for the new notification
+          if (newNotif.type === 'success') {
+            toast.success(newNotif.title, { description: newNotif.body });
+          } else if (newNotif.type === 'warning') {
+            toast.warning(newNotif.title, { description: newNotif.body });
+          } else {
+            toast.info(newNotif.title, { description: newNotif.body });
+          }
         }
       )
       .subscribe();

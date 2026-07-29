@@ -55,9 +55,9 @@ export function NotificationBell({ userId }: NotificationBellProps) {
         className="relative p-2 rounded-full hover:bg-slate-100 transition-colors"
         aria-label="Notifikasi"
       >
-        <Bell className="w-5 h-5 text-slate-600" />
+        <Bell className={`w-5 h-5 ${unreadCount > 0 ? 'text-blue-600' : 'text-slate-600'}`} />
         {unreadCount > 0 && (
-          <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+          <span className="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-[12px] font-bold rounded-full flex items-center justify-center border-2 border-white transform translate-x-1/4 -translate-y-1/4 animate-pulse">
             {unreadCount > 9 ? '9+' : unreadCount}
           </span>
         )}

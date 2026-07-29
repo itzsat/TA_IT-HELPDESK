@@ -1,0 +1,4559 @@
+SISTEM INFORMASI HELPDESK 
+MENGGUNAKAN ALGORITMA 
+FORWARD 
+CHAINING
+UNTUK IDENTIFIKASI 
+PERMASALAHAN IT
+Tugas Akhir 
+Disusun Oleh: 
+Bagas Satria Bimantara
+PROGRAM STUDI 
+TEKNOLOGI REKAYASA PERANGKAT LUNAK
+JURUSAN TEKNIK INFORMATIKA
+POLITEKNIK NEGERI BATAM
+2026
+
+--- PAGE BREAK ---
+
+I
+KATA PENGANTAR
+Puji dan syukur penulis panjatkan kehadirat Tuhan Yang Maha Esa, karena 
+atas rahmat dan karunia
+-
+Nya, penulis dapat menyelesaikan laporan Tugas Akhir 
+yang berjudul
+Sistem Informasi Helpdesk Menggunakan Algoritma 
+Forward 
+Chaining
+untuk Identifikasi Permasalahan IT
+dengan baik dan tepat pada 
+waktunya. Penulisan laporan Tugas Akhir ini disusun sebagai salah satu syarat 
+untuk memperoleh gelar Sarjana Terapan pada Program Studi Teknologi Rekayasa 
+Perangkat Lunak, Jurusan Teknik Informatika, Politeknik Negeri Ba
+tam.
+Dalam proses penyusunan dan penyelesaian Tugas Akhir ini, penulis 
+menyadari bahwa keberhasilan ini tidak lepas dari bimbingan, arahan, dukungan, 
+serta bantuan dari berbagai pihak. Oleh karena itu, pada kesempatan ini penulis 
+ingin menyampaikan ucapan terim
+a kasih yang sebesar
+-
+besarnya kepada:
+1.
+Kedua orang tua serta keluarga yang selalu memberikan doa, dukungan,
+moral maupun materil, serta semangat tanpa henti.
+2.
+Kepada Ibu 
+Sukma Evadini S.T., M.kom
+, selaku dosen pembimbing yang
+telah memberikan arahan, bimbingan, serta motivasi selama 
+prosespenyusunan Tugas Akhir ini.
+3.
+Bapak/Ibu Dosen penguji yang telah memberikan masukan berharga demi
+perbaikan dan penyempurnaan Tugas Akhir ini.
+4.
+Pihak perusahaan tempat penulis melaksanakan penelitian/observasi, yang
+5.
+telah memberikan kesempatan dan dukungan dalam pengumpulan data.
+6.
+Rekan
+-
+Rekan seperjuangan pada Prodi TRPL, serta rekan
+-
+rekan sekalian 
+yang sudah memberi semangat, motivasi, bantuan, selama penyusunan 
+Tugas Akhir ini.
+Penulis menyadari bahwa laporan Tugas Akhir ini masih jauh dari 
+kesempurnaan, baik dari segi penyusunan maupun penyajiannya. Oleh karena itu, 
+penulis sangat mengharapkan kritik dan saran yang membangun dari pembaca demi 
+perbaikan di masa yang akan datang. 
+Akhir kata, semoga laporan Tugas Akhir ini 
+dapat memberikan manfaat bagi perkembangan ilmu pengetahuan, khususnya di 
+bidang rekayasa perangkat lunak dan sistem pakar.
+
+--- PAGE BREAK ---
+
+II
+DAFTAR ISI
+DAFTAR ISI
+................................
+................................
+................................
+...........
+II
+DAFTAR TABEL
+................................
+................................
+................................
+.
+IV
+DAFTAR GAMBAR
+................................
+................................
+..............................
+V
+DAFTAR LAMPIRAN
+................................
+................................
+.........................
+VI
+ABSTRAK
+................................
+................................
+................................
+...........
+VII
+BAB I PENDAHULUAN
+................................
+................................
+.......................
+1
+1.1. Latar Belakang
+................................
+................................
+.............................
+1
+1.2. Rumusan Masalah
+................................
+................................
+........................
+4
+1.3. Tujuan Penelitian
+................................
+................................
+.........................
+4
+1.4. Batasan Masalah
+................................
+................................
+...........................
+5
+1.5. Manfaat Penelitian
+................................
+................................
+.......................
+5
+BAB II TINJAUAN PUSTAKA
+................................
+................................
+.............
+6
+2.1. Penelitian Terkait
+................................
+................................
+.........................
+6
+2.2. Landasan Teori
+................................
+................................
+.............................
+9
+2.2.1 Sistem Pakar (Expert System)
+................................
+................................
+9
+2.2.2 Helpdesk
+................................
+................................
+...............................
+10
+2.3. Metode Pengembangan Produk
+................................
+................................
+..
+11
+2.4. Metode Analisis/Riset yang Digunakan
+................................
+.....................
+12
+2.4.1 Rule Based System
+................................
+................................
+...............
+13
+2.4.2 Forwrad Chaining
+................................
+................................
+................
+14
+2.4.3 Pembobotan Gejala dan 
+Confidence
+Diagnosis
+................................
+...
+16
+BAB III METODOLOGI
+................................
+................................
+......................
+19
+3.1. Alat dan Bahan
+................................
+................................
+...........................
+19
+3.1.1 Alat keterangan
+................................
+................................
+....................
+19
+3.1.2 Bahan
+................................
+................................
+................................
+...
+19
+3.2. Jalannya Penelitian
+................................
+................................
+.....................
+20
+3.3. Tahapan Pengembangan Aplikasi
+................................
+..............................
+22
+3.4. Perancangan Sistem
+................................
+................................
+...................
+24
+3.4.1 Gambaran Umum Sistem
+................................
+................................
+.....
+24
+3.4.2 Kebutuhan Fungsional
+................................
+................................
+.........
+25
+3.4.3 Kebutuhan non Fungsional
+................................
+................................
+..
+26
+
+--- PAGE BREAK ---
+
+III
+3.4.4 Diagram Use Case
+................................
+................................
+................
+27
+3.4.5 Skenario 
+Use Case
+................................
+................................
+...............
+27
+3.4.6 Activity diagram / Sequence diagram
+................................
+..................
+27
+3.4.7 ER Diagram
+................................
+................................
+..........................
+29
+3.4.8 Desain Antarmuka (wireframe) / Desain Perangkat Keras
+..................
+31
+3.5. Rencana Analisis
+................................
+................................
+........................
+34
+BAB IV HASIL DAN PEMBAHASAN
+................................
+..............................
+41
+4.1. Hasil Implementasi
+................................
+................................
+.....................
+42
+4.2. Hasil Analisis
+................................
+................................
+.............................
+47
+4.2.1 Analisis Analisis Proses 
+Forward Chaining
+................................
+........
+52
+4.2.2 Analisis Penerapan 
+Confidence
+Diagnosis
+................................
+...........
+56
+4.2.3 Contoh Kasus Penerapan Algoritma
+................................
+....................
+58
+4.2.4 Analisis Ticketing untuk Kasus Tidak Terdiagnosis
+...........................
+60
+4.2.5 Evaluasi Hasil Diagnosis Sistem
+................................
+..........................
+62
+4.3. Pengujian Sistem
+................................
+................................
+........................
+64
+4.3.1 Black Box Testing
+................................
+................................
+................
+64
+4.3.2 
+User Acceptance Test
+ing (UAT)
+................................
+..........................
+69
+BAB V KESIMPULAN DAN SARAN
+................................
+................................
+70
+5.1. Kesimpulan
+................................
+................................
+................................
+70
+Berdasarkan hasil perancangan, implementasi, dan pengujian Sistem IT 
+Helpdesk berbasis web yang telah dilakukan, diperoleh kesimpulan sebagai 
+berikut:
+................................
+................................
+................................
+..............
+70
+5.2. Saran
+................................
+................................
+................................
+...........
+71
+DAFTAR PUSTAKA
+................................
+................................
+...........................
+72
+DAFTAR LAMPIRAN
+................................
+................................
+.........................
+74
+
+--- PAGE BREAK ---
+
+IV
+DAFTAR TABEL
+Tabel 1. Perbandingan Penelitian Sebelumnya
+................................
+.......................
+6
+Tabel 2 Jenis Dan Bahan Yang Digunakan
+................................
+...........................
+19
+Tabel 3. Kebutuhan Non
+-
+Fungsional
+................................
+................................
+....
+26
+Tabel 4. Gejala Kerusakan
+................................
+................................
+....................
+37
+Tabel 5. Tabel Kerusakan
+................................
+................................
+.....................
+38
+Tabel 6. Rules
+................................
+................................
+................................
+........
+38
+Tabel 7. Tabel Solusi
+................................
+................................
+.............................
+39
+Tabel 8.Hasil Diagnosis Sistem
+................................
+................................
+............
+62
+Tabel 9. Pengujian Black Box
+................................
+................................
+...............
+65
+Tabel 10. Rekapitulasi Hasil 
+Black Box Testing 
+per Modul
+................................
+.
+68
+
+--- PAGE BREAK ---
+
+V
+DAFTAR GAMBAR
+Gambar  1
+Contoh Tahapan Penelitian
+................................
+................................
+.
+21
+Gambar  2 Contoh Gambaran Umum Sistem
+................................
+.......................
+25
+Gambar  3 Contoh Use Case
+................................
+................................
+.................
+27
+Gambar  4 Contoh Gambaran Diagram Actifity
+................................
+...................
+28
+Gambar  5 Entitas Relasional Diagram
+................................
+................................
+.
+30
+Gambar  6 Contoh halaman form Login
+................................
+...............................
+31
+Gambar  7 Contoh Gambar Dashboard IT Support
+................................
+..............
+31
+Gambar  8 Contoh Gambar Dashboard User
+................................
+........................
+32
+Gambar  9 Dashboard IT Support (2)
+................................
+................................
+...
+32
+Gambar  10 Contoh Laman Rules & Solusi
+................................
+..........................
+33
+Gambar  11 Contoh Tambah Rules
+................................
+................................
+.......
+33
+Gambar  12 Contoh Gambar Tambah Solusi
+................................
+........................
+34
+Gambar  13 Contoh Gambar Edit Solusi
+................................
+...............................
+34
+Gambar  14 Jadwal Penelitian
+................................
+................................
+...............
+42
+Gambar  15 Tampilan Halaman Login
+................................
+................................
+..
+43
+Gambar  16 Tampilan Dashboard User dan Search Bar Keluhan
+.........................
+44
+Gambar  17 Tampilan Hasil Diagnosis Sistem
+................................
+.....................
+44
+Gambar  18 Tampilan Buat Ticketing
+................................
+................................
+...
+45
+Gambar  19 Tampilan Daftar Tiket pada Dashboard IT Support
+..........................
+46
+Gambar  20 Tampilan Dashboard IT Support
+................................
+.......................
+46
+Gambar  21 Tampilan Manajemen Rules dan Solusi
+................................
+............
+47
+Gambar  22 Tampilan data gejala
+................................
+................................
+.........
+50
+Gambar  23 data kerusakan dan solusi
+................................
+................................
+..
+51
+Gambar  24 data rule dan bobot
+................................
+................................
+............
+51
+Gambar  25 Contoh input gejala
+................................
+................................
+...........
+52
+
+--- PAGE BREAK ---
+
+VI
+DAFTAR LAMPIRAN
+Lampiran A
+................................
+................................
+................................
+...........
+74
+Lampiran B
+................................
+................................
+................................
+............
+74
+Lampiran C
+................................
+................................
+................................
+............
+75
+
+--- PAGE BREAK ---
+
+VII
+ABSTRAK
+Kemajuan teknologi informasi yang pesat menuntut layanan dukungan IT 
+yang tidak hanya cepat merespons, tetapi juga mampu memberikan penanganan 
+yang konsisten. Namun, dalam praktiknya, penyelesaian gangguan IT masih sangat 
+mengandalkan keahlian masing
+-
+masin
+g individu IT Support. Akibatnya, 
+permasalahan yang berulang seringkali ditangani dengan cara yang berbeda
+-
+beda, 
+mencerminkan belum optimalnya pengelolaan dan penyebaran pengetahuan teknis 
+dalam organisasi. Kondisi ini mempertegas perlunya suatu mekanisme 
+yang dapat 
+mendokumentasikan sekaligus menyajikan solusi secara sistematis. Permasalahan 
+ini tergolong dalam kategori broadly
+-
+defined problem, yakni permasalahan yang 
+memiliki batasan jelas namun membutuhkan pendekatan rekayasa perangkat lunak 
+untuk mening
+katkan konsistensi layanan serta mendukung proses pembelajaran 
+pengguna.
+Tugas Akhir ini bertujuan untuk merancang dan membangun sebuah Sistem 
+Informasi IT Helpdesk berbasis web yang dilengkapi kemampuan identifikasi 
+masalah secara otomatis melalui penerapan metode 
+Forward Chaining
+. Proses 
+pengembangan sistem menggunakan metode Prototype yang bersifat iteratif, 
+sehingga sistem dapat terus disesuaikan dengan kebutuhan pengguna secara 
+bertahap. Sistem yang dikembangkan memanfaatkan knowledge base yang memuat 
+data gejala, jenis kerusak
+an, solusi penanganan, serta aturan logika berb
+entuk IF
+THEN sebagai dasar pemberian rekomendasi secara otomatis.
+Hasil akhir penelitian ini berupa aplikasi IT Helpdesk yang memungkinkan 
+pengguna untuk melaporkan keluhan, mendapatkan solusi awal secara mandiri 
+tanpa harus menunggu intervensi teknisi, serta membantu pihak IT Support dalam 
+mengelola dan memutakhirkan ba
+sis pengetahuan yang dimiliki. Implementasi 
+sistem menunjukkan bahwa penerapan metode 
+Forward Chaining
+secara efektif 
+meningkatkan konsistensi dalam proses identifikasi masalah dan berkontribusi pada 
+peningkatan efisiensi layanan dukungan IT secara jangka 
+panjang.
+Kata Kunci
+: IT Helpdesk, 
+Forward Chaining
+, Prototype, Sistem Pakar, 
+Knowledge Base
+
+--- PAGE BREAK ---
+
+1
+BAB I PENDAHULUAN 
+1.1. Latar Belakang
+Dalam praktiknya, meskipun teknologi IT sudah menjadi tulang punggung 
+operasional perusahaan, penanganan masalah seringkali masih bergantung pada 
+pengalaman dan pegawai yang bersangkutan, gangguan teknis seperti koneksi 
+jaringan yang tiba
+-
+tiba bermasalah, 
+laptop yang gagal menyala, printer yang tidak 
+dapat digunakan, hingga web atau applikasi internal yang mengalami masalah 
+masih sering dialami dan menghambat proses kerja. Masalah
+-
+masalah ini tidak 
+hanya menyebabkan gangguan sementara, tetapi juga dapat men
+imbulkan kerugian 
+waktu hingga biaya yang cukup signifikan bagi perusahaan. Dokumentasi menjadi 
+hal penting bagi pegawai IT support karena akan sangat membantu dalam 
+menghadapi troubleshooting jika terjadi suatu masalah. Dokumentasi yang kurang 
+terstruktur
+dapat menimbulkan kesulitan bagi pegawai IT Support yang baru 
+bergabung dalam memulai proses troubleshooting, karena mereka akan kesulitan 
+menentukan langkah awal untuk menyelesaikan gangguan teknis yang muncul. Hal 
+ini saya alami berdasarkan observasi se
+lama kegiatan magang di PT. PEB, 
+ditemukan bahwa dokumentasi penanganan masalah IT belum sepenuhnya tersusun 
+secara sistematis.
+Penanganan masalah ini umumnya menjadi tugas atau jobdesk utama tim IT 
+Support. Namun, cara kerja mereka sebagian besar masih manual dan bergantung 
+pada pengalaman pribadi setiap pegawai. Dokumentasi perbaikan dan solusi yang 
+diberikan sering kali tidak le
+ngkap atau tidak terdokumentasi dengan baik. 
+Akibatnya, ketika masalah yang sama muncul kembali atau pegawai yang biasanya 
+menangani tidak tersedia, proses identifikasi dan penyelesaian masalah menjadi 
+lama dan kurang konsisten (Sinlae et al., 2023; Maftuh
+ah et al., 2023). Hal ini jelas 
+menurunkan efektivitas layanan IT dan dapat memperburuk produktivitas 
+keseluruhan perusahaan.
+Berbagai penelitian telah berupaya mengatasi permasalahan tersebut dengan 
+menerapkan Knowledge Management Sistem (KMS). Menurut Maftuhah et al. 
+
+--- PAGE BREAK ---
+
+2
+(2023), KMS terbukti dapat meningkatkan efektivitas layanan IT Service Desk 
+dengan menyediakan dokumentasi solusi yang terstruktur. 
+Penelitian serupa oleh Irawan dan Setiyorini (2017) pada PT. Indah Kiat 
+Pulp & Paper Tbk. menunjukkan bahwa sistem helpdesk berbasis KMS membantu 
+pegawai menyelesaikan masalah dengan waktu yang lebih singkat karena adanya 
+pencatatan laporan dan solusi yang
+terdokumentasi dengan baik. Tetapi, sebagian 
+besar sistem KMS yang dikembangkan masih bersifat pasif dengan hanya 
+menyimpan dan menampilkan informasi tanpa kemampuan analisis otomatis 
+terhadap masalah baru.
+Pendekatan berbasis kecerdasan buatan mulai diterapkan untuk mendukung 
+proses identifikasi dan pengelolaan pengetahuan dalam layanan IT. Mahardika dan 
+Ash&#x2019;ari (2024) menerapkan metode Naïve Bayes untuk 
+mengklasifikasikan keluhan pengguna berdasarkan
+data historis, namun metode 
+tersebut memiliki keterbatasan pada interpretabilitas dan akurasi saat jumlah data 
+latih terbatas.
+Sebagai alternatif, penelitian Anggraini et al. (2025) menunjukkan bahwa 
+pendekatan sistem pakar dengan metode 
+Forward Chaining
+lebih sesuai untuk 
+proses diagnosis masalah teknis, karena sistem dapat melakukan penalaran otomatis 
+berdasarkan aturan logis yang telah ditentukan, tanpa memerlukan proses 
+pembelajaran data yang kompleks.
+Selain itu, Lubis & Nasution (2024) menjelaskan bahwa 
+Forward Chaining
+merupakan salah satu metode inferensi utama dalam sistem pakar (expert sistem) 
+yang bekerja dengan menelusuri fakta
+-
+fakta awal menuju kesimpulan akhir. 
+Metode ini mampu memberikan hasil diagnosis yang transparan karena proses 
+penalarannya dapat ditelusuri
+kembali. Kemampuan ini sangat penting karena 
+pegawai perlu memahami dasar logika di balik setiap rekomendasi solusi.
+Sebagai contoh, jika ada pegawai melaporkan keluhan bahwa laptop mereka 
+"tidak dapat menyala sama sekali" dan "lampu indikator charger tidak aktif," sistem 
+pakar dapat secara otomatis menelusuri aturan yang ada dan menyimpulkan bahwa 
+kemungkinan kerusakan 
+ada pada charger atau power adapter. Dari hasil tersebut, 
+sistem akan memberikan rekomendasi solusi, seperti memeriksa kabel charger atau 
+
+--- PAGE BREAK ---
+
+3
+mengganti power adapter, sehingga pegawai tim IT Support dapat melakukan 
+tindakan yang lebih cepat tanpa melakukan proses diagnosa yang berulang ulang 
+hingga memakan waktu.
+Penelitian lain oleh Hidayat dan Lestari (2022) menunjukkan bahwa sistem 
+pakar dengan metode 
+Forward Chaining
+efektif dalam membantu teknisi 
+melakukan diagnosis kerusakan komputer secara otomatis dan akurat. Sementara 
+itu, Thomas dan Nataliani (2021) menekankan pentingnya penerapan Standard 
+Operating Procedure (SOP) dan dokumentasi sistematis untuk menjaga kualit
+as 
+layanan IT. Sejalan dengan itu, Lubis dan Nasution (2024) menegaskan bahwa 
+penerapan teknologi informasi yang efektif dapat meningkatkan efisien
+si sistem 
+pendukung organisasi secara keseluruhan.
+Implementasi sistem IT Helpdesk berbasis web yang mengintegrasikan 
+knowledge base dengan metode 
+Forward Chaining
+diharapkan mampu 
+mempercepat waktu penyelesaian masalah, menjadi pegangan dan panduan bagi 
+pegawai yang baru bergabung, mengurangi ketergantungan pada pengalaman 
+individu pegawai, serta meningkatkan konsistensi kualitas solusi. Hal ini penting 
+untuk menja
+ga kelancaran operasional dan mengurangi risiko kerugian yang 
+disebabkan gangguan IT 
+Penelitian ini berfokus pada pengembangan sistem informasi IT Helpdesk 
+di PT. PEB yang dapat melakukan diagnosis permasalahan IT secara otomatis, 
+memberikan solusi berbasis aturan, serta mendukung proses layanan IT yang lebih 
+cepat dan terdokumentasi. Foku
+s tersebut menunjukkan bahwa penelitian ini berada 
+pada wilayah riset terapan D4, karena tidak hanya membahas metode secara 
+konseptual, tetapi juga merancang, membangun, dan mengevaluasi prototipe sistem 
+untuk menyelesaikan masalah nyata di lingkungan kerj
+a. Aspek 
+Computer Science
+terlihat pada penerapan metode 
+Forward Chaining
+dalam proses diagnosis, 
+sedangkan aspek 
+Software Engineering
+terlihat pada analisis kebutuhan, 
+perancangan sistem, implementasi aplikasi, pengujian, dan evaluasi sistem. Dengan 
+demikian, hasil penelitian ini diharapkan dapat menjadi alat bantu bagi tim IT 
+Support dalam menangani laporan masalah secara lebih terstru
+ktur.
+
+--- PAGE BREAK ---
+
+4
+1.2. Rumusan Masalah
+Berdasarkan uraian pada latar belakang yang telah dijelaskan sebelumnya, 
+maka rumusan dalam penelitian ini dapat dirumuskan sebagai berikut:
+1.
+Bagaimana merancang sistem informasi IT Helpdesk berbasis web yang 
+mampu memfasilitasi proses pelaporan, diagnosis, dan tindak lanjut 
+permasalahan IT secara terstruktur dan terdokumentasi?
+2.
+Bagaimana penerapan metode 
+Forward Chaining
+dalam sistem IT Helpdesk 
+untuk membantu proses diagnosis otomatis berdasarkan gejala yang 
+dilaporkan pengguna?
+3.
+Bagaimana mekanisme sistem 
+ticketing
+dapat mendukung pembaruan 
+pengetahuan (
+rule base
+) oleh IT Support ketika sistem tidak menemukan 
+solusi otomatis?
+4.
+Mengevaluasi efektivitas sistem berdasarkan kesesuaian hasil diagnosis, 
+relevansi solusi, serta penerimaan pengguna terhadap sistem.
+1.3. Tujuan Penelitian
+Adapun tujuan
+-
+tujuan penelitian ini adalah sebagai berikut:
+1.
+Merancang dan mengimplementasikan sistem informasi IT Helpdesk 
+berbasis web yang menyediakan fitur pelaporan masalah, diagnosis 
+otomatis, dan ticketing untuk tindak lanjut keluhan.
+2.
+Menerapkan metode 
+Forward Chaining
+dalam proses penalaran otomatis 
+untuk memberikan rekomendasi solusi berdasarkan gejala atau laporan 
+pengguna.
+3.
+Mengembangkan mekanisme pembaruan rule base melalui sistem ticketing 
+agar sistem dapat terus berkembang sesuai kasus baru yang muncul.
+4.
+Mengevaluasi efektivitas sistem dalam mempercepat dan meningkatkan 
+akurasi proses penanganan masalah IT di lingkungan organisasi
+.
+
+--- PAGE BREAK ---
+
+5
+1.4. Batasan Masalah
+Adapun batasan penelitian ini yang perlu diperhatikan dan dipahami, antara lain:
+1.
+Sistem hanya difokuskan untuk mendeteksi dan memberikan solusi terhadap 
+permasalahan perangkat lunak dan keras pada internal kantor.
+2.
+Metode yang digunakan adalah 
+Forward Chaining
+dengan basis aturan (rule
+-
+based sistem) yang disusun berdasarkan observasi lapangan dan pengalaman 
+langsung dalam menangani berbagai kasus troubleshooting selama masa 
+magang di divisi IT Infrastruktur
+3.
+Sistem ini diimplementasikan dalam bentuk prototipe berbasis web yang 
+mencakup fitur pelaporan, diagnosis otomatis, dan ticketing untuk tindak 
+lanjut kasus yang belum memiliki solusi.
+4.
+Tidak mencakup integrasi dengan sistem ticketing komersial atau perangkat 
+network monitoring eksternal.
+1.5. Manfaat Penelitian
+1. Manfaat Teoritis:
+a.
+Menjadi referensi akademik terkait penerapan metode 
+Forward 
+Chaining
+pada sistem pakar dalam konteks layanan IT Helpdesk.
+b.
+Memberikan kontribusi pada pengembangan ilmu di bidang 
+Knowledge
+-
+Based Sistems
+dan sistem pendukung keputusan 
+berbasis aturan.
+2. Manfaat Praktis:
+a.
+Membantu tim IT Support dalam mendiagnosis dan menyelesaikan 
+masalah dengan lebih cepat dan terarah.
+b.
+Menjadi prototipe awal untuk pengembangan sistem Helpdesk yang 
+cerdas dan terintegrasi di perusahaan.
+
+--- PAGE BREAK ---
+
+6
+BAB II TINJAUAN PUSTAKA
+2.1. Penelitian Terkait
+Berbagai studi literatur telah mengkonfirmasi pentingnya integrasi sistem 
+pakar dan Sistem Manajemen Pengetahuan (Knowledge Management System) 
+dalam konteks layanan IT Helpdesk. Secara umum, penelitian
+-
+penelitian terdahulu 
+berfokus pada peran teknologi unt
+uk mempercepat dan meningkatkan efisiensi 
+proses diagnosis dan resolusi masalah IT.
+Sejumlah penelitian menitikberatkan pada aspek pengelolaan dan 
+dokumentasi solusi (Maftuhah et al., 2023; Irawan & Setiyorini, 2017). Sementara 
+itu, tren penelitian yang lebih baru mulai menggabungkan teknik inferensi seperti 
+Forward Chaining
+dan Naïve Bayes untuk meningkatkan akurasi sistem dalam 
+menganalisis gejala dan merekomendasikan solusi (Mahardika & Ash&#x2019;ari, 
+2024; Arifin & Norhikmah, 2024). Meskipun ada juga studi yang menyoroti faktor 
+pendukung lain seperti pentingnya peran SDM
+dan standardi
+sasi SOP dalam 
+menjaga kualitas layanan (Sinlae et al., 2023).
+Namun dapat disimpulkan bahwa implementasi sistem IT Helpdesk 
+berbasis web menggunakan 
+Forward Chaining
+masih menawarkan peluang 
+signifikan, khususnya dalam pengembangan fitur otomasi diagnosis dan pemberian 
+rekomendasi solusi yang instan dan spesifik.
+Berikut adalah jurnal terkait yang menjadi referensi penelitian sistem pakar 
+IT Helpdesk menggunakan metode 
+Forward Chaining
+yaitu sebagai berikut:
+Tabel 
+1
+. Perbandingan Penelitian Sebelumnya
+Peneliti/
+Tahun
+Judul/Topik 
+Penelitian
+Metode/
+Teknologi
+Kelebihan
+Kekurangan/ 
+Celah
+Maftuhah et 
+al. (2023)
+Knowledge 
+Management 
+Sistem 
+Evaluation 
+Using 
+DeLone & 
+McLean 
+Model: A 
+Case Study of 
+IT Service 
+Evaluasi 
+Knowledge 
+Managemen
+t Sistem 
+(KMS) 
+menggunaka
+n model 
+DeLone & 
+McLean
+Menyediakan 
+kerangka 
+evaluasi 
+menyeluruh 
+terhadap 
+efektivitas 
+sistem 
+manajemen 
+pengetahuan
+Fokus pada 
+evaluasi, 
+belum 
+mengintegrasi
+kan sistem 
+pakar untuk 
+analisis 
+otomatis
+
+--- PAGE BREAK ---
+
+7
+Desk Bank 
+XYZ
+Irawan & 
+Setiyorini 
+(2017)
+Rancang 
+Bangun 
+Aplikasi 
+Helpdesk 
+dengan 
+Pendekatan 
+Knowledge 
+Management 
+Sistem pada 
+Seksi 
+Teknisi PT. 
+Indah Kiat 
+Pulp & Paper 
+Tbk.
+Pengemban
+gan sistem 
+helpdesk 
+berbasis 
+KMS
+Mempermudah 
+proses 
+pelaporan, 
+dokumentasi, 
+dan pencarian 
+solusi masalah 
+IT
+Tidak 
+menggunakan 
+metode 
+inferensi 
+otomatis untuk 
+diagnosis 
+masalah
+Bryan S. 
+Todd (1992)
+An 
+Introduction 
+to Expert 
+Sistems
+dasar teori 
+sistem pakar 
+dan 
+mekanisme 
+inferensi 
+seperti 
+Forward 
+Chaining
+dan 
+Backward 
+Chaining
+Memberikan 
+landasan 
+konseptual yang 
+kuat tentang 
+cara kerja 
+sistem pakar 
+berbasis aturan
+Sifatnya masih 
+teoritis, belum 
+mencakup 
+penerapan 
+modern di 
+bidang IT 
+Helpdesk
+Sinlae et al. 
+(2023)
+Peranan 
+Departemen 
+IT dan 
+Dukungan 
+Tenaga 
+Support serta 
+Pemahaman 
+Karyawan 
+terhadap 
+SOP akan 
+Meningkatka
+n Kualitas 
+Layanan IT
+Observasi 
+dan 
+wawancara 
+lapangan
+Memberikan 
+pemahaman 
+empiris tentang 
+pentingnya SOP 
+dan peran SDM 
+dalam 
+meningkatkan 
+kualitas layanan 
+IT
+Tidak 
+membahas 
+penerapan 
+sistem pakar 
+atau solusi 
+berbasis 
+penalaran 
+otomatis
+Mahardika & 
+Ash&#x2019
+;ari (2024)
+Designing an 
+IT Service 
+Management 
+Sistem with 
+Naïve Bayes 
+Method and 
+Knowledge 
+Metode 
+Naïve Bayes 
+& 
+Knowledge 
+Base
+Mampu 
+mengklasifikasi
+kan jenis 
+masalah IT 
+berdasarkan 
+data historis
+Memerlukan 
+data latih yang 
+banyak dan 
+tidak 
+menjelaskan 
+proses 
+
+--- PAGE BREAK ---
+
+8
+Base to Support 
+IT Services
+penalaran 
+hasil diagnosis
+Guntur 
+Prihandono & 
+Muhammad 
+Taufiq Amir 
+(2024)
+Implementas
+i Teknologi 
+Informasi 
+dalam 
+Meningkatka
+n Efisiensi 
+Organisasi 
+dan Daya 
+Saing 
+Perusahaan
+Analisis 
+Penerapan 
+TI
+Memberikan 
+pandangan 
+strategis 
+efisiensi 
+organisasi
+Belum fokus 
+pada sistem IT 
+Helpdesk
+Lubis & 
+Nasution 
+(2024)
+Implementat
+ion of 
+Forward 
+Chaining
+in 
+a Web
+-
+Based 
+Expert 
+Sistem for 
+Passport 
+Forward 
+Chaining
+Menunjukkan 
+penerapan 
+Forward 
+Chaining
+dalam 
+layanan publik 
+berbasis web
+Studi terbatas 
+pada domain 
+pelayanan 
+publik
+Arifin, M. N., 
+& Norhikmah 
+(2024)
+Sistem Pakar 
+Analisis 
+Kerusakan 
+pada 
+Komputer 
+dan Laptop 
+menggunaka
+n Metode 
+Dempster 
+Shafer dan 
+Forward 
+Chaining
+Forward 
+Chaining
+& 
+Dempster 
+Shafer
+Menekankan 
+pentingnya 
+dokumentasi 
+dan prosedur 
+dalam menjaga 
+kualitas layanan
+Menggabungk
+an dua metode 
+diagnosis 
+untuk hasil 
+lebih akurat
+Hidayat & 
+Lestari (2022)
+Analisis 
+Sistem Pakar 
+Diagnosis 
+Kerusakan 
+Komputer 
+Menggunaka
+n 
+Forward 
+Chaining
+Rule
+-
+based 
+Expert 
+Sistem 
+(
+Forward 
+Chaining
+)
+Memberikan 
+contoh nyata 
+penerapan 
+metode 
+inferensi dalam 
+diagnosis 
+masalah 
+perangkat IT
+Fokus pada 
+perangkat 
+individu, 
+belum 
+diterapkan 
+pada konteks 
+Helpdesk 
+perusahaan
+Berdasarkan penelitian terdahulu, dapat dilihat bahwa sebagian besar sistem 
+helpdesk masih berfokus pada pencatatan laporan, dokumentasi solusi, atau 
+pengelolaan 
+knowledge base
+. Penelitian berbasis 
+Knowledge Management System
+
+--- PAGE BREAK ---
+
+9
+membantu proses penyimpanan dan pencarian solusi, tetapi belum menyediakan 
+proses diagnosis otomatis yang mampu menelusuri gejala menuju kesimpulan 
+kerusakan secara langsung. Sementara itu, penelitian yang menggunakan metode 
+klasifikasi seperti 
+Naïve Bayes
+membutuhkan data latih yang cukup banyak dan 
+hasil diagnosisnya tidak selalu mudah ditelusuri secara logis oleh pengguna.
+Penelitian yang menggunakan metode 
+Forward Chaining
+umumnya telah 
+mampu melakukan diagnosis berbasis aturan. Namun, sebagian penelitian masih 
+berfokus pada diagnosis kerusakan komputer secara umum dan belum 
+mengintegrasikannya dengan sistem IT Helpdesk yang memiliki fitur pelaporan, 
+ticketing, dokumentasi 
+solusi, pengelolaan knowledge base, serta pembaruan rules 
+oleh IT Support.
+Penelitian ini memiliki pembeda pada integrasi antara sistem informasi IT 
+Helpdesk, metode 
+Forward Chaining
+, pembobotan gejala, 
+confidence
+diagnosis
+, 
+ticketing system, dan manajemen knowledge base dalam satu prototipe berbasis 
+web. Dengan pendekatan tersebut, sistem yang dikembangkan tidak hanya 
+memberikan rekomendasi solusi berdasarkan aturan, tetapi juga menampilkan 
+tingkat keyakinan diagnosis berda
+sarkan bobot gejala yang terpenuhi. Selain itu, 
+kasus yang belum dapat diselesaikan secara otomatis dapat di
+teruskan melalui fitur 
+ticketing agar ditangani oleh IT Support dan menjadi bahan pembaruan knowledge 
+base. Pembeda ini menjadikan sistem lebih sesuai dengan kebutuhan layanan IT 
+Helpdesk di lingkungan kerja, karena mendukung diagnosis, dokumentasi, tindak
+lanjut, dan pengembangan pengetahuan secara berkelanjutan.
+2.2. Landasan Teori
+2.2.1 Sistem Pakar (Expert System)
+Sistem pakar merupakan cabang dari kecerdasan buatan atau Artificial 
+Intelligence yang dirancang untuk meniru proses berpikir seorang ahli dalam 
+memecahkan masalah tertentu (Giarratano & Riley, 2005). Sistem pakar bekerja 
+dengan memanfaatkan pengetahuan ya
+ng tersimpan dalam knowledge base dan 
+
+--- PAGE BREAK ---
+
+10
+menggunakan mesin inferensi atau inference engine untuk menarik kesimpulan dari 
+fakta atau data yang diberikan oleh pengguna.
+Secara umum, sistem pakar terdiri dari beberapa komponen utama, yaitu 
+knowledge base, inference engine, working memory, dan user interface. 
+Knowledge base berisi pengetahuan yang digunakan sistem, seperti fakta, aturan, 
+gejala, jenis kerusakan, bobot gejal
+a, dan solusi. Inference engine berfungsi sebagai 
+mesin penalaran untuk mencocokkan fakta dengan aturan yang tersedia. Working 
+memory digunakan untuk menyimpan fakta sementara yang diperoleh dari input 
+pengguna selama proses diagnosis berlangsung. User int
+erface berfungsi sebagai 
+media interaksi antara pengguna dan sistem.
+Dalam konteks IT Helpdesk, sistem pakar berfungsi sebagai asisten digital 
+yang membantu mendiagnosis permasalahan pengguna secara otomatis 
+berdasarkan gejala yang dilaporkan. Sistem pakar memungkinkan proses 
+pengambilan keputusan menjadi lebih cepat dan ko
+nsisten, terutama pada 
+organisasi yang menangani banyak laporan IT setiap harinya. Selain itu, integrasi 
+sistem pakar dengan mekanisme feedback atau ticketing memungkinkan sistem 
+untuk terus diperbarui berdasarkan kasus baru yang ditangani oleh IT Support.
+2.2.2 Helpdesk
+Helpdesk merupakan bagian penting dari layanan teknologi informasi yang 
+berfungsi sebagai pusat dukungan pengguna atau user support center. Melalui 
+helpdesk, pengguna dapat melaporkan permasalahan yang berkaitan dengan 
+perangkat keras, perangkat lunak, jar
+ingan, maupun aplikasi internal yang 
+digunakan dalam kegiatan operasional (Susanti et al., 2021).
+Dalam operasionalnya, tim helpdesk bertugas mencatat laporan gangguan, 
+melakukan analisis awal, memberikan solusi langsung jika memungkinkan, serta 
+melakukan eskalasi ke bagian teknis yang lebih tinggi apabila masalah tidak dapat 
+diselesaikan pada tahap aw
+al. Helpdesk juga berperan dalam menyimpan riwayat 
+laporan, memantau status penanganan, dan menyediakan dokumentasi penyelesaian 
+masalah sebagai referensi ketika kasus serupa muncul kembali.
+Namun, sistem helpdesk tradisional sering kali masih bersifat manual dan 
+bergantung pada pengalaman teknisi. Kondisi tersebut dapat menyebabkan proses
+
+--- PAGE BREAK ---
+
+11
+penanganan masalah menjadi kurang konsisten, terutama ketika dokumentasi solusi 
+tidak tersusun dengan baik atau teknisi yang biasa menangani masalah tidak 
+tersedia.
+Dengan mengintegrasikan sistem pakar berbasis metode 
+Forward Chaining
+dan fitur ticketing, proses penanganan masalah dapat dilakukan secara lebih 
+otomatis, terdokumentasi, dan terstruktur. Ketika sistem dapat menemukan solusi 
+berdasarkan rule base, pengguna akan memperoleh diagnosis dan rekomendasi 
+solusi secara langsung. J
+ika sistem tidak menemukan solusi yang sesuai, laporan 
+akan diteruskan melalui ticketing system kepada IT Support untuk ditinjau secara 
+manual.
+Hasil penanganan tiket tersebut dapat digunakan sebagai dasar pembaruan 
+knowledge base, seperti penambahan gejala, rules, bobot gejala, atau solusi baru. 
+Dengan demikian, integrasi sistem pakar dan helpdesk dapat membantu layanan IT 
+menjadi lebih adaptif, 
+efisien, dan mampu mengembangkan pengetahuan 
+berdasarkan kasus yang terjadi di lingkungan kerja.
+2.3. Metode Pengembangan Produk
+Metodologi pengembangan sistem yang digunakan dalam penelitian ini 
+adalah Software Development Life Cycle (SDLC). Dari berbagai model yang ada 
+dalam SDLC, penelitian ini secara spesifik memilih metode Prototype sebagai 
+model pengembangan sistem.
+Penelitian ini menggunakan metode 
+Prototype
+dalam proses pengembangan 
+sistem. Menurut Nelson et al. (2016), metode 
+Prototype
+merupakan pendekatan 
+pengembangan perangkat lunak yang bersifat iteratif, di mana model awal sistem 
+dibangun untuk diuji pengguna, kemudian diperbaiki berdasarkan umpan balik 
+hingga menghasilkan sistem akhir yang sesuai kebutuhan.
+Metode ini mungkin tepat karena pengembangan sistem IT Helpdesk 
+berbasis web dengan metode 
+Forward Chaining
+memerlukan keterlibatan langsung 
+dari pengguna (tim IT Support) dalam proses validasi aturan (
+rule
+) dan logika 
+inferensi. Dengan metode ini, sistem dapat dikembangkan secara bertahap, diuji 
+
+--- PAGE BREAK ---
+
+12
+langsung, dan disempurnakan sesuai hasil evaluasi lapangan sehingga hasil 
+akhirnya lebih sesuai dengan kebutuhan pengguna.
+Tahapan metode 
+Prototype
+dalam penelitian ini meliputi:
+1.
+Pengumpulan Kebutuhan: Dilakukan melalui observasi dan diskusi 
+langsung terhadap tim IT Support untuk mengetahui kebutuhan sistem dan 
+pola penanganan masalah.
+2.
+Pembuatan Prototype Awal: Membuat rancangan antarmuka dan logika 
+dasar diagnosis berbasis aturan.
+3.
+Evaluasi dan Umpan Balik: Pengujian prototype oleh pengguna untuk 
+menilai kelayakan fungsi dan hasil diagnosis.
+4.
+Penyempurnaan Sistem: Melakukan revisi berdasarkan masukan pengguna 
+hingga sistem siap diimplementasikan.
+5.
+Pengujian Akhir dan Implementasi: Melakukan 
+Black Box Testing 
+untuk 
+memastikan seluruh fungsionalitas sistem bebas dari eror.
+Pemilihan metode Prototype dalam penelitian ini didasarkan pada beberapa 
+pertimbangan. Pertama, kebutuhan sistem IT Helpdesk di PT. PEB bersifat dinamis 
+karena jenis permasalahan IT yang muncul di lapangan terus berkembang. Kedua, 
+sistem yang dibangun meme
+rlukan validasi langsung dari pengguna, yaitu staf IT 
+Support dan pengguna umum, untuk memastikan fitur
+-
+fitur yang dikembangkan 
+benar
+-
+benar sesuai dengan kebutuhan operasional. Ketiga, metode Prototype 
+memungkinkan pengembang untuk mendeteksi kesalahan dan
+ketidaksesuaian 
+kebutuhan sejak awal, sehingga risiko kegagalan sistem dapat diminimalkan.
+2.4. Metode Analisis/Riset yang Digunakan
+Metode analisis yang digunakan dalam penelitian ini adalah metode analisis 
+sistem pakar berbasis aturan (
+Rule
+-
+Based Expert Sistem Analysis
+), yang bertujuan 
+untuk merancang logika inferensi dan basis pengetahuan (
+knowledge base
+) dalam 
+proses diagnosis masalah IT.
+Menurut 
+Mahardika & Ash&#x2019;ari (2024)
+, sistem pakar bekerja 
+dengan dua komponen utama, yaitu 
+knowledge base
+(berisi fakta dan aturan) dan 
+inference engine
+(yang melakukan penalaran untuk menarik kesimpulan). Dalam 
+
+--- PAGE BREAK ---
+
+13
+penelitian ini, proses penalaran dilakukan menggunakan metode 
+Forward 
+Chaining
+, yaitu pendekatan 
+data
+-
+driven reasoning
+yang memulai analisis dari 
+gejala yang diketahui hingga mencapai kesimpulan.
+Analisis dilakukan dengan langkah
+-
+langkah berikut:
+1.
+Identifikasi Domain Pengetahuan: Mengumpulkan data permasalahan 
+umum yang sering terjadi di bagian IT Support melalui observasi dan 
+pengalaman langsung dalam menghadapi troubleshoot.
+2.
+Perumusan Basis Pengetahuan: Menyusun aturan 
+IF
+THEN
+berdasarkan 
+hubungan antara gejala (fakta) dan jenis kerusakan yang sering muncul.
+3.
+Perancangan Mesin Inferensi: Menentukan mekanisme logika untuk 
+mencocokkan fakta dengan aturan dalam basis pengetahuan menggunakan 
+pendekatan 
+Forward Chaining
+.
+4.
+Validasi Aturan: Melakukan pengujian terhadap hasil inferensi sistem 
+dengan kasus nyata untuk memastikan kesesuaian hasil diagnosis dengan 
+kondisi lapangan.
+5.
+Evaluasi Akurasi dan Relevansi Solusi: Membandingkan hasil sistem 
+dengan analisis teknisi untuk menilai tingkat keakuratan diagnosis dan 
+efektivitas rekomendasi solusi.
+2.4.1 Rule Based System
+Rule
+-
+Based System 
+merupakan salah satu teknik dalam kecerdasan buatan 
+yang menggunakan sekumpulan aturan logika IF
+-
+THEN sebagai dasar pengambilan 
+keputusan (Sharfina Faza et al., 2025). Sistem ini dirancang untuk meniru proses 
+berpikir seorang ahli dalam memecahkan masalah 
+dengan menggunakan 
+pengetahuan yang disusun dalam bentuk aturan.
+Dalam Rule
+-
+Based System, setiap aturan menghubungkan suatu kondisi 
+dengan tindakan atau kesimpulan tertentu. Bagian IF berisi kondisi atau fakta yang 
+harus dipenuhi, sedangkan bagian THEN berisi hasil, kesimpulan, atau solusi yang 
+diberikan oleh sistem. Pa
+da konteks penelitian ini, kondisi yang dimaksud berupa 
+gejala permasalahan IT, sedangkan kesimpulan yang dihasilkan berupa jenis 
+kerusakan dan rekomendasi solusi.
+
+--- PAGE BREAK ---
+
+14
+Arsitektur dasar 
+Rule
+-
+Based System 
+terdiri dari tiga komponen utama, yaitu 
+data atau fakta, rules, dan inference engine. Data atau fakta merupakan informasi 
+awal yang diberikan oleh pengguna, seperti gejala kerusakan perangkat atau 
+aplikasi. Rules merupakan kumpulan aturan yang menghubungka
+n gejala dengan 
+kemungkinan kerusakan. Inference engine berfungsi sebagai mesin penalaran yang 
+mencocokkan fakta dengan rules untuk menghasilkan diagnosis dan solusi.
+Dengan pendekatan ini, sistem dapat memberikan hasil diagnosis secara 
+lebih terstruktur karena proses pengambilan keputusan didasarkan pada aturan yang 
+telah disusun dan divalidasi oleh pakar.
+2.4.2 Forwrad Chaining
+Forward Chaining
+merupakan metode inferensi berbasis aturan atau rule
+-
+based inference method yang menggunakan pendekatan data
+-
+driven reasoning. 
+Proses penalaran dimulai dari fakta atau gejala yang diketahui, kemudian sistem 
+menelusuri aturan yang sesuai hingga menghasilka
+n sebuah kesimpulan (Hidayat 
+& Lestari, 2022). Metode ini bekerja dengan cara mencocokkan fakta yang 
+diberikan pengguna terhadap aturan
+-
+aturan yang terdapat dalam knowledge base.
+Jika kondisi pada suatu aturan terpenuhi, maka sistem akan mengeksekusi 
+bagian kesimpulan atau THEN clause dari aturan tersebut. Proses ini dilakukan 
+secara bertahap sampai sistem menemukan kemungkinan diagnosis dan solusi yang 
+sesuai. Dalam penelitian ini
+, fakta awal berupa gejala permasalahan IT yang 
+dimasukkan oleh pengguna, sedangkan kesimpulan berupa jenis kerusakan dan 
+rekomendasi solusi.
+Secara umum, struktur aturan dalam metode 
+Forward Chaining
+dapat 
+dinyatakan dalam bentuk persamaan logika. Setiap aturan terdiri atas bagian kondisi 
+dan bagian kesimpulan. Bagian kondisi berisi kombinasi gejala yang dihubungkan 
+menggunakan operator logika AND, sedangkan bagian kesimpulan berisi jenis 
+kerusakan da
+n solusi yang diberikan oleh sistem. Bentuk umum aturan tersebut 
+dapat dituliskan sebagai berikut.
+
+--- PAGE BREAK ---
+
+15
+Dan berikut contoh konkret, rule untuk diagnosis kerusakan printer dapat ditulis 
+sebagai berikut:
+Persamaan tersebut menunjukkan bahwa apabila gejala 
+dan 
+terpenuhi, 
+maka sistem akan menghasilkan kesimpulan berupa 
+, yaitu kerusakan printer, 
+serta memberikan solusi 
+yang sesuai dengan kerusakan tersebut. Dengan 
+struktur ini, proses diagnosis menjadi lebih terarah karena setiap hasil diagnosis 
+berasal dari hubungan antara gejala, jenis kerusakan, dan solusi yang telah disusun 
+dalam knowledge base.
+Metode 
+Forward Chaining
+digunakan sebagai metode utama dalam proses 
+diagnosis masalah IT Helpdesk secara otomatis. Sistem menerima input gejala dari 
+pengguna, kemudian mencocokkannya dengan setiap aturan yang tersedia dalam 
+knowledge base. Apabila ditemukan aturan yang sesuai, m
+aka sistem akan 
+menampilkan hasil diagnosis dan rekomendasi solusi. Apabila sistem tidak 
+menemukan aturan yang sesuai, maka laporan akan diteruskan ke fitur ticketing 
+untuk ditinjau oleh IT Support. Hasil penanganan dari IT Support d
+apat digunakan 
+sebagai dasar untuk menambahkan aturan, bobot gejala, atau solusi baru ke dalam 
+knowledge base.
+Pada penelitian ini, 
+Forward Chaining
+juga dikombinasikan dengan 
+pembobotan gejala untuk mendukung penentuan tingkat keyakinan diagnosis. 
+Pembobotan tersebut tidak menggantikan peran 
+Forward Chaining
+sebagai metode 
+inferensi utama, tetapi digunakan sebagai mekanisme pendukung ketika gejala yang 
+dimasukkan pengguna belum lengkap. Dengan demikian, 
+Forward Chaining
+tetap 
+berperan dalam proses penelusuran fakta menuju kesimpulan, sedangkan 
+perhitungan tingkat keyakinan diagnosis dijelaskan secara khusus pada su
+bbab 
+pembobotan gejala dan 
+confidence
+diagnosis.
+
+--- PAGE BREAK ---
+
+16
+Dalam konteks IT Helpdesk, metode 
+Forward Chaining
+sesuai digunakan 
+karena proses diagnosis dimulai dari keluhan atau gejala yang dilaporkan pengguna. 
+Metode ini mendukung proses penelusuran aturan secara sistematis, konsisten, dan 
+mudah diperbarui. Apabila terdapat kasus baru yang belum dapat didiagnosis
+oleh 
+sistem, data tersebut dapat dianalisis kembali oleh IT Support untuk memperbarui 
+isi knowledge base.
+2.4.3 Pembobotan Gejala dan 
+Confidence
+Diagnosis
+Pembobotan gejala adalah mekanisme pendukung dalam sistem pakar yang 
+bertujuan untuk memberikan nilai tingkat keyakinan terhadap hasil diagnosis. 
+Meskipun bukan metode utama, pembobotan ini berfungsi sebagai komponen 
+tambahan yang meningkatkan kualitas has
+il diagnosis dengan memberikan 
+indikator kuantitatif mengenai kelengkapan kondisi yang terpenuhi. Dalam konteks 
+sistem ini, pembobotan digunakan untuk menghitung tingkat keyakinan diagnosis 
+ketika gejala yang dimasukkan oleh pengguna belum lengkap.
+Dalam praktik troubleshooting, tidak semua gejala memiliki tingkat 
+pengaruh yang sama terhadap kerusakan tertentu. Sebagai contoh, pada kerusakan 
+printer (K02), gejala "printer tidak terdeteksi pada sistem" (G03) memiliki 
+pengaruh lebih besar dibandingkan 
+"printer tidak mengeluarkan hasil cetak" (G04), 
+karena jika printer tidak terdeteksi oleh sistem, maka secara logis printer tersebut 
+sudah pasti tidak dapat mengeluarkan hasil cetak. Oleh karena itu, setiap gejala 
+diberikan bobot berdasarkan tingkat pengar
+uhnya terhadap jenis kerusakan yang 
+mungkin terjadi. Nilai bobot ini berada dalam rentang 1 sampai 100, dan total bobot 
+semua gejala dalam satu aturan (rule) selalu berjumlah 100.
+Nilai bobot ditentukan melalui validasi pakar IT Support yang 
+berpengalaman dalam menangani masalah
+-
+masalah serupa. Dengan cara ini, 
+hubungan antara gejala, kerusakan, dan solusi tetap sesuai dengan kondisi 
+troubleshooting
+di lapangan. Bobot yang diberikan tidak dimaksudkan sebagai nilai 
+pasti terhadap penyebab kerusakan, melainkan sebagai ukuran tingkat pengaruh 
+suatu gejala terhadap kemungkinan diagnosis tertentu.
+
+--- PAGE BREAK ---
+
+17
+Tingkat keyakinan (
+confidence
+) diagnosis dihitung dengan membandingkan 
+jumlah bobot gejala yang cocok dengan total bobot gejala pada rule yang ada. 
+Formula perhitungannya adalah sebagai berikut:
+Sebagai contoh, pada rule untuk kerusakan printer, terdapat dua gejala:  G03 
+(printer tidak terdeteksi) dengan bobot 60, dan G04 (printer tidak mengeluarkan 
+hasil cetak) dengan bobot 40. Total bobot pada rule tersebut adalah 100.
+A.
+Skenario A 
+Semua gejala terpenuhi:
+Jika sistem berhasil mengidentifikasi G03 dan G04 dari input keluhan 
+pengguna. Misalnya, pengguna menuliskan keluhan bahwa printer tidak terdeteksi 
+dan tidak bisa mencetak. Karena seluruh gejala pada 
+rule
+terpenuhi, nilai 
+confidence
+dihitung sebagai berikut.
+Nilai tersebut menunjukkan bahwa sistem memiliki tingkat keyakinan penuh 
+terhadap kemungkinan kerusakan printer karena seluruh kondisi pada 
+rule
+telah 
+terpenuhi.
+B.
+Skenario B 
+Sebagian gejala terpenuhi:
+Jika sistem hanya berhasil mengidentifikasi G03 dari input keluhan 
+pengguna. Kondisi ini dapat terjadi ketika pengguna hanya menuliskan keluhan 
+bahwa printer tidak terdeteksi, tanpa memberikan informasi tambahan mengenai 
+hasil cetak. Nilai 
+confidence
+dihitung sebagai berikut.
+Nilai 60% menunjukkan bahwa sistem memiliki indikasi awal terhadap 
+kemungkinan kerusakan printer, tetapi diagnosis masih memerlukan konfirmasi 
+tambahan karena belum semua gejala pada 
+rule
+terpenuhi. 
+Pembobotan gejala tidak mengubah prinsip dasar metode 
+Forward 
+Chaining
+, yang tetap berfokus pada penalaran dari fakta menuju kesimpulan 
+berdasarkan aturan IF
+-
+THEN. Sebagai tambahan, bobot gejala digunakan untuk 
+
+--- PAGE BREAK ---
+
+18
+mengukur sejauh mana kondisi IF dalam aturan tersebut terpenuhi, sehingga 
+memberikan tingkat keyakinan terhadap diagnosis yang dihasilkan.
+Dengan cara ini, sistem dapat memberikan diagnosis yang lebih informatif 
+dan fleksibel, terutama ketika pengguna hanya melaporkan sebagian gejala dari 
+suatu pola kerusakan yang kompleks. Kombinasi antara 
+Forward Chaining
+sebagai 
+metode inferensi utama dan pembobotan gejala sebagai mekanisme pendukung 
+menghasilkan sistem yang tidak hanya mampu mendiagnosis masalah, tetapi juga 
+memberikan indikator kepercayaan yang membantu pengguna dan IT Support 
+dalam mengambil keputusan 
+tindak lanjut yang tepat.
+
+--- PAGE BREAK ---
+
+19
+BAB III METODOLOGI
+3.1. Alat dan Bahan
+Penelitian ini, memliki beberapa alat dan bahan yang digunakan guna 
+melakukan pengujian pada penelitian ini, Adapun rincian alat dan bahan dalam 
+penelitian ini:
+3.1.1 Alat keterangan
+Alat yang dipergunakan untuk mendukung penelitian ini adalah sebagai 
+berikut:
+1.
+Perangkat Keras
+a.
+Laptop AMD ryzen 5, RAM 8 GB, SSD 512 GB.
+b.
+Koneksi Internet
+2.
+Perangkat Lunak
+a.
+Sistem operasi: Windows 11
+b.
+Editor/IDE: Visual Studio Code / Antigravity
+c.
+Framework: 
+Tailwind CSS + shadcn/ui, Hono Framework
+d.
+Database: 
+Supabase
+e.
+Bahasa Pemrograman: JavaScript (Node.js), 
+TypeScript
+f.
+Browser: Chrome
+g.
+Tools Pendukung: Supabase, GIT, GitHub, Claude
+3.1.2 Bahan
+Bahan
+-
+bahan yang dipergunakan pada penelitian ini adalah sebagai berikut:
+Tabel 
+2
+Jenis Dan Bahan Yang Digunakan
+No
+Jenis Bahan
+Keterangan
+1
+Dataset Logbook IT 
+Support
+Berisi catatan harian permasalahan dan penyelesaian IT di 
+PT. PEB
+2
+Basis Pengetahuan 
+(Knowledge Base)
+Kumpulan aturan (rules) IF
+THEN hasil observasi, 
+troubleshoot pada website resmi dan pengalam langsung 
+dalam menghadapi troubleshoot
+3
+Framework Laravel 
+11
+Sebagai kerangka kerja utama aplikasi web
+
+--- PAGE BREAK ---
+
+20
+4
+MySQL Database
+Digunakan untuk menyimpan data pengguna, laporan, dan 
+aturan sistem
+5
+Bootstrap 5
+Untuk antarmuka pengguna (UI) yang responsif dan 
+ringan
+6
+Visual Studio Code
+Lingkungan pengembangan (IDE) utama
+7
+Literatur & Jurnal
+Sebagai referensi dalam penyusunan teori dan 
+pengembangan sistem
+3.2. Jalannya Penelitian
+Alur jalannya penelitian dalam pengembangan sistem IT Helpdesk berbasis 
+web menggunakan metode 
+Forward Chaining
+dengan pendekatan Prototype 
+dilakukan secara iteratif hingga menghasilkan sistem yang sesuai kebutuhan 
+pengguna dan mampu beradaptasi dengan kasus baru melalui fitur ticketing.
+Tahapan pertama adalah perencanaan dan analisis, di mana peneliti 
+melakukan identifikasi masalah dan observasi langsung terhadap aktivitas IT 
+Support di perusahaan. Pada tahap ini dilakukan pula pengumpulan data awal 
+seperti logbook perbaikan, laporan gang
+guan, serta diskusi dengan pengguna sistem 
+untuk memahami pola masalah yang sering terjadi, jenis solusi yang diberikan, dan 
+kebutuhan fitur tambahan seperti ticketing untuk pelaporan lanjutan.
+Tahap berikutnya adalah perancangan sistem, yang mencakup pengumpulan 
+rules awal untuk metode 
+Forward Chaining
+, perancangan struktur knowledge base, 
+serta pembuatan rancangan tampilan sistem (wireframe dan struktur menu). 
+Perancangan juga mencakup alur ticketing system yang memungkinkan pengguna 
+mengirimkan laporan lanjutan apabila sistem tidak dapat menemukan sol
+usi secara 
+otomatis. Rules awal disusun berdasarkan hasil observasi dan diskusi bersama tim 
+IT support agar sistem mampu melakukan diagnosis perma
+salahan dengan baik.
+Tahap selanjutnya yaitu implementasi, di mana peneliti mulai melakukan 
+proses pengkodean dan pengembangan sistem berbasis web menggunakan bahasa 
+pemrograman dan framework yang telah ditentukan. Implementasi meliputi 
+pembuatan antarmuka pengguna, integrasi 
+basis data, penerapan logika inferensi 
+
+--- PAGE BREAK ---
+
+21
+Forward Chaining
+, serta pengembangan modul ticketing yang menghubungkan 
+pengguna dengan tim IT Support untuk pembaruan rule dan solusi baru.
+Tahap pengujian dilakukan setelah sistem selesai diimplementasikan. 
+Pengujian meliputi 
+Black Box Testing 
+untuk memastikan seluruh fitur berjalan 
+sesuai fungsi (pelaporan, diagnosis otomatis, dan ticketing), serta 
+User Acceptance 
+Test
+(UAT) untuk menilai kesesuaian sistem dengan kebutuhan pengguna dan 
+kemudahan penggunaan di lingkungan kerja nyata.
+Tahap terakhir adalah evaluasi sistem aplikasi, yang bertujuan menilai 
+efektivitas dan kelayakan sistem secara keseluruhan. Evaluasi meliputi proses 
+penyempurnaan sistem, penambahan rules baru berdasarkan laporan ticketing, 
+revisi antarmuka, serta optimali
+sasi performa sistem berdasarkan hasil umpan balik 
+pengguna. Jika ditemukan kekurangan atau kebutuhan tambahan, proses akan 
+kembali ke tahap perancangan untuk dilakukan pembaruan, sesuai dengan 
+karakteristik metode Prototype yang bersifat iteratif.
+Dengan tahapan tersebut, diharapkan sistem IT Helpdesk yang 
+dikembangkan dapat berjalan optimal, mampu melakukan diagnosis otomatis 
+berbasis aturan, serta mendukung pembelajaran berkelanjutan melalui fitur 
+ticketing yang memungkinkan penambahan pengetahuan
+baru oleh tim IT Support.
+Berikut merupakan gambaran atau visualisasi tahapan penelitian: 
+Gambar  
+1
+Contoh Tahapan Penelitian
+
+--- PAGE BREAK ---
+
+22
+3.3. Tahapan Pengembangan Aplikasi
+Pada penelitian ini, pengembangan sistem dilakukan menggunakan metode 
+Prototype sebagaimana telah dijelaskan pada Bab II., Metode ini dipilih karena 
+bersifat iteratif dan melibatkan pengguna secara langsung dalam proses 
+perancangan serta evaluasi sistem. M
+elalui pendekatan ini, sistem dikembangkan 
+secara bertahap hingga mencapai bentuk akhir yang sesuai dengan kebutuhan 
+pengguna dan dapat diperbarui secara dinamis berdasarkan laporan baru melalui 
+fitur 
+ticketing
+.
+Adapun tahapan pengembangan aplikasi berdasarkan metode Prototype 
+meliputi beberapa langkah berikut:
+1.
+Pengumpulan Kebutuhan
+Pada tahap ini dilakukan proses observasi langsung terhadap aktivitas IT 
+Support serta analisis terhadap pola permasalahan yang sering terjadi 
+selama kegiatan magang. Pengumpulan kebutuhan dilakukan melalui 
+komunikasi dan diskusi informal dengan tim IT Sup
+port untuk memahami 
+alur penanganan masalah, kebutuhan fitur sistem, serta jenis informasi yang 
+dibutuhkan dalam proses diagnosis. Selain itu, dilakukan analisis terhadap 
+kebutuhan fitur ticketing sebagai jalur pelaporan lanjutan bagi user jika 
+sistem tida
+k menemukan solusi otomatis, sehingga laporan dapat diteruskan 
+kepada IT Support untuk ditindaklanjuti.
+2.
+Perancangan Prototype Awal
+Berdasarkan hasil analisis kebutuhan, dibuat rancangan antarmuka dan alur 
+logika sistem berbasis aturan (
+rule
+-
+based system
+) menggunakan metode 
+Forward Chaining
+. Prototype awal memuat fitur utama seperti 
+form 
+pelaporan masalah 
+(laman input keluhan), proses diagnosis otomatis 
+berdasarkan gejala, hasil rekomendasi solusi, serta 
+ticketing system
+untuk 
+pelaporan lanjutan.
+
+--- PAGE BREAK ---
+
+23
+3.
+Evaluasi dan Pengujian Awal
+Prototype yang telah dibuat diuji oleh pengguna (tim IT Support dan user 
+internal) untuk menilai fungsionalitas, kemudahan penggunaan, serta 
+ketepatan hasil diagnosis sistem. Umpan balik dari pengguna, terutama dari 
+tiket
+-
+tiket yang tidak terselesaikan oto
+matis, digunakan sebagai dasar 
+perbaikan 
+rules
+dan tampilan sistem.
+4.
+Penyempurnaan Sistem
+Berdasarkan hasil evaluasi, dilakukan perbaikan terhadap antarmuka 
+pengguna, logika inferensi 
+Forward Chaining
+, serta pembaruan struktur 
+knowledge base
+dengan menambahkan 
+rules
+baru yang berasal dari laporan 
+ticketing
+. Proses ini dilakukan secara berulang hingga sistem mencapai 
+tingkat keandalan dan akurasi yang diharapkan.
+5.
+Pengujian dan Implementasi Akhir
+Tahap akhir meliputi pengujian sistem menggunakan metode 
+Black Box 
+Testing 
+untuk memastikan semua fungsi bekerja sesuai spesifikasi, serta 
+User Acceptance Test
+(UAT)
+untuk menilai kepuasan pengguna terhadap 
+sistem. Setelah dinyatakan stabil, sistem diimplementasikan sebagai alat 
+bantu utama tim IT Support dalam mendiagnosis, mendokumentasikan, dan 
+mengelola laporan permasalahan IT.
+Dengan penerapan metode Prototype, pengembangan sistem IT Helpdesk 
+berbasis 
+Forward Chaining
+dapat dilakukan secara fleksibel, terarah, dan berfokus 
+pada kebutuhan pengguna. Proses iteratif memungkinkan pengembang melakukan 
+evaluasi dan penyempurnaan secara berkelanjutan, termasuk pembaruan 
+rules
+dari 
+hasil laporan 
+ticketing
+, sehingga menghasilkan sistem yang cerdas, adaptif, dan 
+relevan dengan kondisi nyata di lingkungan kerja.
+
+--- PAGE BREAK ---
+
+24
+3.4. Perancangan Sistem
+Perancangan sistem dilakukan untuk memberikan gambaran awal mengenai 
+fitur, alur kerja, struktur data, serta interaksi antar komponen yang akan digunakan 
+dalam pengembangan sistem IT Helpdesk berbasis web dengan metode 
+Forward 
+Chaining
+. Pada tahap ini, dilakukan proses perancangan kebutuhan fungsional, 
+pemodelan proses bisnis, perancangan alur sistem, perancangan basis data, hingga 
+desain antarmuka pengguna. Hasil dari tahapan perancangan ini menjadi acuan 
+utama dalam proses implementas
+i sistem pada tahap s
+elanjutnya.
+3.4.1 Gambaran Umum Sistem
+Alur kerja sistem informasi Helpdesk berbasis web yang menerapkan 
+metode 
+Forward Chaining
+. Sistem ini melibatkan tiga komponen utama, yaitu 
+User, IT Support, serta sistem inti yang terdiri dari Web Server, Database, 
+Knowledge Base, dan 
+Forward Chaining
+Engine.
+Proses dimulai ketika User melaporkan permasalahan atau memilih gejala 
+kerusakan melalui antarmuka sistem. Data laporan tersebut diproses oleh Web 
+Server dan disimpan dalam Database. Kemudian, 
+Forward Chaining
+Engine 
+mengambil data tersebut untuk dianalisis berdasarkan aturan (rule) dan solusi yang 
+telah disusun oleh IT Support di dalam Knowledge Base.
+Setelah proses penalaran selesai, hasil diagnosis atau rekomendasi solusi 
+dikirimkan kembali kepada User melalui antarmuka aplikasi.
+Dengan mekanisme ini, sistem membantu mempercepat proses penanganan 
+masalah dan memberikan solusi secara otomatis serta konsisten, sehingga 
+meningkatkan efisiensi layanan IT Helpdesk.
+
+--- PAGE BREAK ---
+
+25
+Gambar  
+2
+Contoh Gambaran Umum Sistem
+3.4.2 Kebutuhan Fungsional
+Ini merupakan beberapa kebutuhan fungsional yang teradpat pada penelitian 
+kali ini yaitu: 
+FR
+-
+01 : User dan IT Support dapat melakukan login dan logout 
+FR
+-
+02 : Sistem menyediakan form pelaporan masalah (fakta/gejala) yang dapat 
+diisi oleh user.
+FR
+-
+03 : Sistem menyimpan data laporan ke dalam database sebagai arsip dan bahan 
+analisis.
+FR
+-
+04 : Sistem melakukan proses identifikasi otomatis berdasarkan metode 
+Forward Chaining
+, mencocokkan fakta dengan aturan dalam knowledge base.
+FR
+-
+05 : Sistem menampilkan hasil solusi atau rekomendasi tindakan kepada user 
+berdasarkan hasil inferensi.
+FR
+-
+06 : Jika sistem tidak menemukan solusi, user dapat membuat tiket keluhan 
+tambahan (ticketing) yang akan diteruskan ke IT Support untuk penanganan 
+manual. 
+FR
+-
+07 : IT Support dapat melihat daftar tiket aktif, memberikan tanggapan, dan 
+memperbarui status tiket (open, on progress, resolved).
+FR
+-
+08 : IT Support dapat menambahkan atau memperbarui rules dan solusi baru 
+berdasarkan hasil penyelesaian tiket agar sistem dapat belajar dari kasus baru.
+
+--- PAGE BREAK ---
+
+26
+FR
+-
+09 : Sistem menampilkan riwayat laporan dan status penyelesaian kepada 
+masing
+-
+masing user.
+FR
+-
+10 : Administrator atau IT Support dapat mengelola data knowledge base, 
+termasuk menambah, mengubah, atau menghapus aturan dan solusi yang sudah 
+tidak relevan.
+3.4.3 Kebutuhan non Fungsional
+Adapaun kebutuhan fungsional pada penelitian ini sebagai berikut:
+Tabel 
+3
+. Kebutuhan Non
+-
+Fungsional
+Parameter
+Requirement
+Security
+Sistem hanya dapat diakses secara online melalui 
+autentikasi login. Hak akses dibatasi berdasarkan role (User 
+& IT Support). Semua data laporan dan rules tersimpan 
+secara aman di database.
+Usability
+Antarmuka sistem harus mudah dipahami, sederhana, dan 
+dapat digunakan oleh pengguna tanpa pelatihan khusus. 
+Navigasi dibuat intuitif dan responsif.
+Reliability
+Sistem harus dapat beroperasi dengan stabil tanpa error saat 
+menangani pelaporan dan proses inferensi 
+Forward 
+Chaining
+.
+Maintainability
+Sistem dirancang agar mudah diperbarui, termasuk 
+penambahan aturan (rules), solusi, maupun perbaikan 
+fungsi oleh IT Support.
+Compatibility
+Sistem dapat diakses melalui browser desktop (Chrome, 
+Edge, Firefox) tanpa instalasi tambahan.
+Language
+Bahasa antarmuka menggunakan Bahasa Indonesia yang 
+mudah dipahami.
+
+--- PAGE BREAK ---
+
+27
+3.4.4 Diagram Use Case
+Diagram ini menggambarkan interaksi antara pengguna (aktor) dengan 
+sistem. Diagram harus dibuat sesuai dengan simbol standar UML..
+3.4.
+5
+Skenario 
+Use Case
+Menjelaskan detail langkah
+-
+langkah interaksi antara aktor dengan sistem 
+untuk setiap use case. Disarankan menggunakan Tabel agar lebih rapi.
+3.4.
+6
+Activity diagram / Sequence diagram
+Activity diagram sistem informasi IT Helpdesk berbasis web ini 
+menggambarkan alur aktivitas utama yang melibatkan tiga komponen, yaitu User, 
+Sistem, dan IT Support.
+Proses dimulai ketika User melakukan login dan menginputkan keluhan 
+atau permasalahan IT melalui search bar pada aplikasi. Keluhan tersebut diterima 
+Gambar  
+3
+Contoh Use Case
+
+--- PAGE BREAK ---
+
+28
+oleh Sistem, kemudian diproses secara otomatis menggunakan metode 
+Forward 
+Chaining
+dengan mencocokkan gejala yang diinput user terhadap aturan (rules) 
+yang tersimpan dalam basis pengetahuan.
+Apabila proses inferensi berhasil menemukan hasil, sistem akan 
+menampilkan identifikasi permasalahan beserta rekomendasi solusi kepada user. 
+Namun, apabila solusi tidak ditemukan, user dapat membuat tiket keluhan 
+tambahan yang selanjutnya diteruskan oleh s
+istem kepada IT Support untuk 
+penanganan manual.
+IT Support bertugas mengelola data rules dan solusi, menangani tiket 
+keluhan yang masuk, serta memberikan pembaruan status penanganan kepada user. 
+Seluruh aktivitas tersebut tercatat dalam sistem sebagai bahan dokumentasi dan 
+laporan.
+Secara keseluruhan, activity diagram ini menggambarkan alur interaksi 
+yang terstruktur antara user, sistem, dan IT Support dalam proses diagnosis dan 
+penyelesaian permasalahan IT menggunakan metode 
+Forward Chaining
+.
+Berikut Adalah gambar dari actifty diagram:
+Gambar  
+4
+Contoh Gambaran Diagram Actifity
+
+--- PAGE BREAK ---
+
+29
+3.4.
+7
+ER Diagram
+Entity Relationship Diagram (ERD) pada Sistem IT Helpdesk berbasis 
+metode 
+Forward Chaining
+terdiri dari delapan entitas utama, yaitu Users, Tickets, 
+Diagnosis_results, Gejala, Rules, Rule_details, Kerusakan, dan Solusi. Struktur 
+basis data ini dirancang untuk mendukung proses pelaporan gangguan, pengelolaan 
+tiket, serta identifikasi otomatis te
+rhadap permasalahan infrastruktur TI.
+Entitas Users menyimpan data pengguna sistem yang terdiri dari User dan 
+IT Support. Setiap pengguna dapat membuat banyak tiket pada entitas Tickets, 
+sedangkan IT Support dapat menangani beberapa tiket melalui atribut assigned_to. 
+Entitas Tickets menyimpan 
+informasi terkait laporan gangguan seperti judul, 
+deskripsi, prioritas, status, waktu pembuatan, dan waktu penyelesaian tiket.
+Proses identifikasi gangguan dilakukan menggunakan basis pengetahuan 
+yang terdiri dari entitas Gejala, Rules, Rule_details, Kerusakan, dan Solusi. Entitas 
+Rule_details berfungsi menghubungkan setiap rule dengan gejala
+-
+gejala yang 
+menjadi syarat atau kondis
+i dalam proses inferensi. Setiap rule mengacu pada satu 
+jenis kerusakan, sedangkan setiap kerusakan dapat memiliki satu atau lebih solusi 
+penanganan.
+Hasil proses inferensi disimpan pada entitas Diagnosis_results yang berisi 
+hubungan antara tiket dan rule yang digunakan dalam proses identifikasi. Entitas 
+ini juga menyimpan tingkat keyakinan (
+confidence
+) dan waktu diagnosis sehingga 
+riwayat hasil identifikasi dapat ditelusuri kembali.
+
+--- PAGE BREAK ---
+
+30
+Secara 
+keseluruhan
+, ERD 
+ini menggambarkan alur sistem mulai dari 
+pelaporan gangguan
+oleh 
+pengguna
+, proses 
+identifikasi menggunakan metode
+Forward Chaining
+berdasarkan gejala
+yang 
+dipilih, penyimpanan hasil
+diagnosis, 
+pemberian solusi yang sesuai, hingga pengelolaan dan penyelesaian tiket
+oleh IT 
+Support.
+Gambar  
+5
+Entitas Relasional Diagram
+
+--- PAGE BREAK ---
+
+31
+3.4.
+8
+Desain Antarmuka (wireframe) / Desain Perangkat Keras
+Ini merupakan gambar desain antarmuka, berikut diantaranya:
+Gambar  
+6
+Contoh halaman form Login
+Gambar  
+7
+Contoh Gambar Dashboard IT Support
+
+--- PAGE BREAK ---
+
+32
+Gambar  
+8
+Contoh Gambar Dashboard User
+Gambar  
+9
+Dashboard IT Support (2)
+
+--- PAGE BREAK ---
+
+33
+Gambar  
+10
+Contoh Laman Rules & Solusi
+Gambar  
+11
+Contoh Tambah Rules
+
+--- PAGE BREAK ---
+
+34
+Gambar  
+13
+Contoh Gambar Edit Solusi
+3.5. Rencana Analisis 
+Rencana analisis pada penelitian ini disusun untuk memastikan bahwa 
+sistem informasi Helpdesk berbasis metode 
+Forward Chaining
+dapat berfungsi 
+sesuai dengan tujuan yang diharapkan, yaitu membantu proses diagnosis dan 
+penyelesaian masalah IT secara otomatis, cepat, serta terdokumentasi dengan baik. 
+Gambar  
+12
+Contoh 
+Gambar Tambah Solusi
+
+--- PAGE BREAK ---
+
+35
+Tahapan analisis ini mengacu pada teori
+-
+teori yang telah dijelaskan sebelumnya, 
+yaitu konsep sistem pakar, Helpdesk, Rule
+-
+Based System, 
+Forward Chaining
+, serta 
+pembobotan gejala dan 
+confidence
+diagnosis sebagai dasar dalam perancangan 
+sistem.
+Analisis dilakukan dengan menyusun basis pengetahuan yang terdiri dari 
+data gejala, data kerusakan, aturan atau rules, bobot gejala, dan solusi. Data gejala 
+digunakan sebagai fakta awal yang dipilih atau dilaporkan oleh pengguna. Data 
+kerusakan digunakan s
+ebagai kemungkinan hasil diagnosis. Rules digunakan untuk 
+menghubungkan beberapa gejala dengan jenis kerusakan tertentu berdasarkan pola 
+IF
+-
+THEN. Bobot gejala digunakan untuk menunjukkan tingkat pengaruh suatu 
+gejala terhadap kerusakan tertentu. Solusi dig
+unakan sebagai rekomendasi tindakan 
+yang diberikan sistem setelah proses diagnosis selesai.
+Proses analisis dengan metode 
+Forward Chaining
+dilakukan dengan 
+mencocokkan fakta atau gejala yang dimasukkan oleh pengguna dengan rules yang 
+tersimpan dalam basis pengetahuan. Setiap rule memiliki kumpulan gejala yang 
+mengarah pada jenis kerusakan tertentu. Apabila gejala yang dimasukkan pengguna 
+coc
+ok dengan sebagian atau seluruh gejala pada suatu rule, maka sistem akan 
+menghitung nilai 
+confidence
+berdasarkan bobot gejala yang terpenuhi. Nilai 
+confidence
+tersebut digunakan untuk menunjukkan tingkat keyaki
+nan sistem 
+terhadap kemungkinan diagnosis yang dihasilkan.
+Tingkat keyakinan diagnosis dihitung menggunakan rumus sebagai berikut:
+Confidence
+= Jumlah bobot gejala yang cocok / Total bobot gejala pada rule × 100%
+Dengan rumus tersebut, sistem tetap dapat memberikan kemungkinan 
+diagnosis meskipun pengguna hanya memasukkan sebagian gejala. Jika seluruh 
+gejala pada suatu rule terpenuhi, maka nilai 
+confidence
+akan semakin tinggi. 
+Sebaliknya, jika hanya sebagian gejala yang terpenuhi, sistem tetap dapat 
+menampilkan kemungkinan diagnosis dengan tingkat keyakinan yang lebih rendah. 
+Apabila gejala yang dimasukkan pengguna tidak sesuai dengan rule yang tersedia, 
+
+--- PAGE BREAK ---
+
+36
+maka sistem akan mengarahkan laporan tersebut ke fitur ticketing agar dapat 
+ditindaklanjuti secara manual oleh IT Support.
+Evaluasi dalam penelitian ini dilakukan untuk menilai dua aspek utama, 
+yaitu keberfungsian sistem dan ketepatan hasil diagnosis menggunakan metode 
+Forward Chaining
+yang dilengkapi dengan 
+confidence
+diagnosis. Evaluasi 
+keberfungsian sistem dilakukan melalui 
+Black Box Testing 
+untuk memastikan setiap 
+fitur berjalan sesuai kebutuhan, seperti login, pelaporan masalah, proses diagnosis 
+otomatis, tampilan rekomendasi solusi, pembuatan tiket, pengelolaan rules, 
+pengelolaan bobot gejala, pengelolaan solusi, dan peru
+bahan status tiket.
+Evaluasi hasil 
+Forward Chaining
+dilakukan dengan membandingkan hasil 
+diagnosis sistem dengan hasil diagnosis dari pakar IT Support. Kasus uji diperoleh 
+dari logbook IT Support, hasil observasi, dan skenario troubleshooting yang telah 
+divalidasi oleh pakar. Setiap kasus uji berisi kombin
+asi gejala, hasil diagnosis 
+sistem, nilai 
+confidence
+, hasil diagnosis pakar, dan status kesesuaian. Hasil 
+diagnosis dinyatakan sesuai apabila jenis kerusakan yang dihasilkan sistem sama 
+atau sejalan dengan diagnosis pakar.
+Tingkat ketepatan diagnosis dihitung menggunakan rumus akurasi sebagai berikut:
+Akurasi = Jumlah diagnosis yang sesuai dengan pakar / Total kasus uji × 100%
+Selain diagnosis, solusi yang diberikan oleh sistem juga dievaluasi oleh 
+pakar IT Support. Solusi dinyatakan sesuai apabila rekomendasi sistem sejalan 
+dengan prosedur troubleshooting yang biasa dilakukan di lingkungan kerja. Jika 
+sistem tidak menemukan sol
+usi yang sesuai, maka kasus tersebut diarahkan ke fitur 
+ticketing untuk ditangani secara manual oleh IT Support dan dapat digunakan 
+sebagai bahan pembaruan knowledge base.
+Berdasarkan tahapan analisis tersebut, penelitian ini menyusun data gejala, 
+data kerusakan, rules, bobot gejala, dan solusi sebagai dasar kerja sistem pakar. 
+Struktur basis pengetahuan tersebut ditampilkan pada tabel berikut.
+
+--- PAGE BREAK ---
+
+37
+Tabel G (gejala kerusakan) :
+Tabel 
+4
+. Gejala Kerusakan
+Kode 
+Gejala
+Nama Gejala
+G01
+Laptop tidak menyala/mati total
+G02
+Layar laptop menampilkan garis
+-
+garis
+G03
+Printer tidak terdeteksi pada sistem
+G04
+Printer tidak mengeluarkan hasil cetak
+G05
+Kursor tidak bisa bergerak saat penggunaan touchpad
+G06
+Kursor bergerak sendiri tanpa pengoperasian pengguna
+G07
+Klik kanan pada touchpad tidak berfungsi
+G08
+Keyboard tidak mengeluarkan input
+G09
+Keyboard mengetik sendiri tanpa pengoperasian
+G10
+Laptop mengisi daya dalam waktu yang lama
+G11
+Baterai cepat habis setelah diisi penuh
+G12
+Laptop tidak mengisi daya saat disambungkan
+G13
+Lampu indikator pengisian daya tidak menyala
+G14
+Perangkat suara tidak terdeteksi
+G15
+Laptop tidak mengeluarkan suara
+G16
+Laptop hang atau crash saat membuka aplikasi
+G17
+Kinerja laptop sangat lambat
+G18
+Laptop berhenti di sistem operasi saat booting
+G19
+Muncul bluescreen saat digunakan
+G20
+Terdapat error &#x201C;checking disk saat booting
+G21
+Laptop melakukan restart sendiri
+G22
+Harddisk tidak terdeteksi
+G23
+Laptop mati tiba
+-
+tiba saat digunakan
+G24
+Sistem operasi gagal loading
+G25
+CD/DVD drive tidak bisa terbuka
+G26
+Perangkat eksternal tidak terdeteksi
+G27
+Perangkat eksternal terhubung tapi tidak berfungsi
+G32
+Jaringan Wi
+-
+Fi tidak terhubung
+G33
+Koneksi internet terputus
+-
+putus
+G35
+Scanner tidak berfungsi atau tidak dapat diakses
+G34
+Tidak bisa mengakses file sharing server
+G36
+Lagu Indonesia Raya tidak berbunyi saat jadwal otomatis
+G37
+Speaker Bluetooth tidak terkoneksi
+G38
+T
+ask Scheduler tidak berjalan
+G39
+Website scan.peb.co.id tidak dapat diakses
+
+--- PAGE BREAK ---
+
+38
+G40
+Database server XAMPP tidak aktif
+G41
+Accurate tidak dapat dibuka / tidak dapat digunakan
+G42
+Firebird Service 
+tidak berjalan
+TABEL K (kerusakan) :
+Tabel 
+5
+. Tabel Kerusakan
+Kode 
+Kerusakan
+Nama Kerusakan
+K01
+Kerusakan Layar/Laptop Tidak Menyala
+K02
+Kerusakan Printer
+K03
+Kerusakan Touchpad
+K04
+Kerusakan Keyboard
+K05
+Kerusakan Charger Laptop
+K06
+Kerusakan Baterai Laptop
+K07
+Kerusakan Audio Software
+K08
+Kerusakan Audio Hardware
+K09
+Kerusakan Harddisk atau Sistem Operasi
+K10
+Kerusakan Peripheral (Scanner, USB, dsb)
+K11
+Kerusakan Jaringan/Internet
+K12
+Masalah File Sharing atau Server Internal
+K13
+Masalah Pemutaran Audio Terjadwal
+K14
+Masalah Server Aplikasi scan.peb.co.id
+K15
+Masalah Aplikasi Accurate
+Tabel R (rules) :
+Tabel 
+6
+. Rules
+ID Rule
+Kode Kerusakan
+Kode Gejala
+R01
+K01
+G01 G02
+R02
+K02
+G03 G04
+R03
+K03
+G05 G06 G07
+R04
+K04
+G08 G09
+
+--- PAGE BREAK ---
+
+39
+R05
+K05
+G10 G13
+R06
+K06
+G11 G12
+R07
+K07
+G14
+R08
+K08
+G15 
+R09
+K09
+G16 G17 G18 G19 G20
+R10
+K09
+G21 G22 G23 G24
+R11
+K10
+G25 G26 G27 G35
+R12
+K11
+G32 G33
+R13
+K12
+G34
+R14
+K13
+G36 G37 G38
+R15
+K14
+G39 G40
+R16
+K15
+G41 G42
+Tabel S (solusi) : 
+Tabel 
+7
+. Tabel Solusi
+Kode 
+Solusi
+Kode 
+Kerusakan
+Solusi
+S01
+K01
+Periksa adaptor daya, kabel, dan RAM; pastikan layar tidak 
+rusak dan indikator power menyala.
+S02
+K02
+Pastikan driver printer terinstal, cek koneksi USB atau 
+jaringan, dan lakukan tes cetak.
+S03
+K03
+Aktifkan touchpad melalui pengaturan, update driver, atau 
+gunakan mouse eksternal sementara.
+S04
+K04
+Bersihkan keyboard, cek konektor, dan uji dengan 
+keyboard eksternal.
+S05
+K05
+Coba gunakan charger lain dengan spesifikasi sama, 
+periksa kabel dan adaptor; pastikan port daya laptop tidak 
+longgar.
+S06
+K06
+Kalibrasi baterai melalui BIOS, pastikan konektor baterai 
+tidak kendor, dan ganti baterai jika kapasitasnya menurun.
+
+--- PAGE BREAK ---
+
+40
+S07
+K07
+Instal ulang driver audio, periksa Device Manager dan 
+pastikan perangkat suara aktif.
+S08
+K08
+Coba gunakan headset eksternal; jika tetap tidak ada suara, 
+periksa jack audio atau speaker internal.
+S09
+K09
+Jalankan safe mode, periksa harddisk dari bad sector, dan 
+lakukan system restore jika perlu.
+S10
+K10
+Pastikan kabel terpasang, instal ulang driver perangkat 
+eksternal, dan uji di port USB lain.
+S11
+K11
+Periksa router dan koneksi Wi
+-
+Fi, pastikan IP address 
+benar, dan jaringan tidak dibatasi firewall.
+S12
+K12
+Pastikan server file sharing aktif, periksa izin akses, dan 
+pastikan koneksi jaringan stabil.
+S13
+K13
+Periksa koneksi speaker Bluetooth; pastikan perangkat 
+tersambung. Cek Task Scheduler dan pastikan job berjalan 
+sesuai jadwal.
+S14
+K14
+Pastikan koneksi internet stabil; periksa status server 
+XAMPP/database pada PC server; restart service jika 
+diperlukan.
+S15
+K15
+Cek PC server dan pastikan Firebird Service berjalan; 
+pastikan koneksi Accurate dapat mengakses database 
+server.
+
+--- PAGE BREAK ---
+
+41
+BAB IV HASIL DAN PEMBAHASAN  
+
+--- PAGE BREAK ---
+
+42
+Gambar  
+14
+Jadwal Penelitian
+4.1. Hasil Implementasi 
+Hasil implementasi menunjukkan bahwa sistem IT Helpdesk berbasis web 
+telah berhasil dibangun sesuai dengan rancangan kebutuhan fungsional, 
+Use Case 
+Diagram
+, dan 
+Activity Diagram
+yang telah dijelaskan pada Bab III. Sistem 
+dikembangkan menggunakan React.js sebagai antarmuka pengguna dan Supabase 
+sebagai layanan backend yang menangani autentikasi, penyimpanan data, serta 
+pengelolaan basis pengetahuan. Implementasi ini menghasilkan b
+eberapa fitur 
+
+--- PAGE BREAK ---
+
+No
+Kegiatan
+Uraian Aktivitas
+1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+1
+Analisis Kebutuhan
+Observasi lapangan, Diskusi 
+bersama tim IT Support,  
+Identifikasi permasalahan, 
+Penyusunan kebutuhan fitur 
+ticketing
+2
+Perancangan Prototype 
+Awal
+Desain UI/UX, Penyusunan 
+alur Forward Chaining, 
+Penyusunan knowledge base 
+awal, Pembuatan prototype 
+fitur diagnosis & ticketing
+3
+Evaluasi & Pengujian
+Uji coba prototype oleh user, 
+Evaluasi fungsionalitas, 
+Analisis ketepatan diagnosis, 
+Pengumpulan umpan balik 
+dari IT Support
+4
+Penyempurnaan Sistem
+Perbaikan antarmuka, Revisi 
+rules Forward Chaining, 
+Penambahan rules dari hasil 
+ticketing, Optimasi alur 
+diagnosis
+5
+Pengujian & Implementasi
+Black Box Testing, User 
+Acceptance Test (UAT), 
+Finalisasi sistem, 
+Implementasi ke lingkungan 
+pengguna
+6
+Pelaporan Hasil & Revisi
+Penyusunan laporan, 
+presentasi hasil,  persiapan 
+sidang dan revisi
+Minggu
+Minggu
+Minggu
+Minggu
+November
+Desember
+Januari
+Februari
+
+--- PAGE BREAK ---
+
+43
+utama, yaitu login, dashboard user, input keluhan melalui 
+search bar
+, proses 
+diagnosis otomatis, ticketing, dashboard IT Support, dan manajemen 
+knowledge 
+base
+.
+Proses 
+implementasi diawali dengan penyiapan lingkungan pengembangan 
+React.js. Pada tahap ini dilakukan konfigurasi proyek, instalasi dependensi, serta 
+penyusunan komponen antarmuka berdasarkan rancangan 
+wireframe
+. Selanjutnya, 
+sistem dihubungkan dengan Supabase melalui konfigurasi URL dan API key pada 
+file environment. Supabase digunakan untuk menyimpan data pengguna, gejala, 
+kerusakan, solusi, rules, bobot gejala, laporan, serta tiket. Dengan konfigurasi 
+tersebut
+, data yang digunakan dalam proses diagnosi
+s tidak lagi bersifat dummy, 
+tetapi diambil dari database yang telah disusun sesuai kebutuhan sistem.
+Hasil implementasi pertama adalah halaman login. Halaman ini digunakan 
+sebagai pintu masuk pengguna sebelum dapat mengakses fitur sistem. Pengguna 
+melakukan autentikasi menggunakan akun yang telah terdaftar. Setelah berhasil 
+login, sistem akan mengarahkan pengguna ke dashboard sesuai perannya, yaitu 
+sebagai user atau IT Support. Hal ini menunjukkan bahwa sistem telah menerapkan 
+pembagian akses berdasarkan role pengguna
+.
+Gambar  
+15
+Tampilan Halaman Login
+
+--- PAGE BREAK ---
+
+44
+Hasil 
+implementasi berikutnya adalah dashboard user. Pada halaman ini, 
+pengguna dapat memasukkan keluhan IT melalui 
+search bar
+. Pengguna tidak perlu 
+memilih kode gejala secara manual, tetapi cukup menuliskan kendala yang dialami 
+menggunakan bahasa sederhana. Input keluhan tersebut kemudian diproses oleh 
+sistem untuk menemukan gejala yang sesuai pada basis pengetahuan. Dengan 
+meka
+nisme ini, interaksi pengguna menjadi lebih sederhana karena pengguna 
+cukup menjelaskan masalah yang dialami
+.
+Setelah pengguna memasukkan keluhan, sistem menampilkan hasil 
+diagnosis berdasarkan proses pencocokan terhadap basis pengetahuan. Hasil yang 
+ditampilkan meliputi jenis kerusakan, solusi yang direkomendasikan, serta nilai 
+confidence
+sebagai indikator tingkat keyakinan sistem. Tampilan hasil diagnosis ini 
+Gambar  
+16
+Tampilan Dashboard User dan Search Bar Keluhan
+Gambar  
+17
+Tampilan Hasil Diagnosis Sistem
+
+--- PAGE BREAK ---
+
+45
+menjadi bagian penting karena menunjukkan bahwa sistem tidak hanya menerima 
+laporan, tetapi juga mampu memberikan rekomendasi awal secara otomatis.
+Selain fitur diagnosis otomatis, sistem juga menyediakan fitur 
+ticketing
+. 
+Fitur ini digunakan apabila sistem tidak menemukan diagnosis yang sesuai atau 
+apabila keluhan pengguna membutuhkan pemeriksaan lanjutan oleh IT Support. 
+Melalui fitur ini, pengguna dapat membuat tiket yang berisi subjek keluhan, 
+deskripsi masalah, dan st
+atus penanganan. Tiket yang dibuat kemudian dapat dilihat 
+dan ditindaklanjuti oleh IT Support melalui dashboard khusus.
+Gambar  
+18
+Tampilan Buat Ticketing
+
+--- PAGE BREAK ---
+
+46
+Pada sisi IT Support, sistem menyediakan dashboard untuk mengelola laporan dan 
+basis pengetahuan. IT Support dapat melihat tiket yang masuk, memperbarui status 
+tiket, serta mengelola data gejala, kerusakan, solusi, rules, dan bobot gejala. Fitur 
+ini menduk
+ung proses pembaruan 
+knowledge base
+apabila ditemukan kasus baru 
+yang belum dapat didiagnosis secara otomatis oleh sistem.
+Gambar  
+19
+Tampilan 
+Daftar Tiket pada Dashboard IT Support
+Gambar  
+20
+Tampilan Dashboard IT Support
+
+--- PAGE BREAK ---
+
+47
+Secara keseluruhan, hasil implementasi menunjukkan bahwa sistem telah 
+memiliki alur penggunaan yang sesuai dengan rancangan. Alur tersebut dimulai 
+dari pengguna melakukan login, memasukkan keluhan melalui 
+search bar
+, sistem 
+memproses keluhan untuk menghasilkan diagnosis, kemudian sistem menampilkan 
+rekomendasi solusi. Apabila diagnosis tidak ditemukan, pengguna dapat membuat 
+tiket untuk ditindaklanjuti oleh IT Support. Dengan demikian, sistem telah 
+mendukung proses p
+elaporan, diagnosis awal, dokumentasi kel
+uhan, serta 
+pembaruan basis pengetahuan secara terstruktur.
+4.2. Hasil Analisis
+Rule
+-
+Based System 
+merupakan metode yang digunakan untuk 
+merepresentasikan pengetahuan dalam bentuk kumpulan aturan (rules) yang terdiri 
+atas kondisi (IF) dan kesimpulan (THEN). Pada penelitian ini, metode 
+Rule
+-
+Based 
+System 
+diterapkan untuk membantu proses identifikasi permasalahan teknologi 
+informasi secara otomatis berdasarkan gejala yang dialami pengguna. Penerapan 
+metode ini bertujuan untuk mengubah pengetahuan dan pengalaman 
+troubleshooting yang dimiliki oleh IT Support 
+menjadi sebuah basis pengetahuan 
+yang dapat digunakan kembali secara konsisten oleh sistem.
+Gambar  
+21
+Tampilan Manajemen Rules dan Solusi
+
+--- PAGE BREAK ---
+
+48
+Pada sistem IT Helpdesk yang dikembangkan, proses diagnosis dilakukan 
+dengan memanfaatkan hubungan antara gejala, jenis kerusakan, solusi, dan aturan 
+diagnosis yang tersimpan dalam knowledge base. Gejala berfungsi sebagai fakta 
+awal yang diperoleh dari inp
+ut pengguna, sedangkan kerusakan merupakan hasil 
+diagnosis yang dihasilkan sistem. Solusi digunakan sebagai rekomendasi tindakan 
+perbaikan yang diberikan kepada pengguna setelah proses diagnosis selesai 
+dilakukan. Seluruh komponen tersebut dihubungkan mela
+lui aturan
+-
+aturan 
+diagnosis yang membentuk basis pengetahuan sistem.
+Mekanisme kerja 
+Rule
+-
+Based System 
+pada penelitian ini menggunakan 
+pendekatan 
+Forward Chaining
+atau penalaran berbasis data (data
+-
+driven 
+reasoning). Proses dimulai ketika pengguna memasukkan keluhan melalui fitur 
+pencarian pada halaman diagnosis. Sistem kemudian melakukan pencocokan 
+terhadap kata kunci yang terdapat pada knowledge base untuk mengid
+entifikasi 
+gejala yang sesuai. Gejala yang berhasil dikenali akan dianggap sebagai fakta awal 
+yang selanjutnya digunakan dalam proses pencarian rule yang relevan.
+Setelah fakta awal diperoleh, sistem melakukan penelusuran terhadap 
+seluruh rule yang tersimpan pada basis pengetahuan. Setiap rule memiliki sejumlah 
+gejala yang harus dipenuhi agar dapat menghasilkan suatu kesimpulan. Apabila 
+gejala yang dimasukkan penggu
+na sesuai dengan gejala yang terdapat pada suatu 
+rule, maka rule tersebut akan dianggap aktif dan digunakan sebagai dasar dalam 
+menentukan jenis kerusakan yang paling mungkin terjadi. Berdasarkan kerusakan 
+yang teridentifikasi, sistem kemudian menampilkan 
+solusi yang telah ditentukan 
+pada basis pengetahuan.
+Struktur knowledge base dalam sistem terdiri atas data gejala, data 
+kerusakan, data solusi, data rule, dan data detail rule. Data gejala menyimpan 
+berbagai indikator permasalahan yang mungkin dialami pengguna. Data kerusakan 
+menyimpan jenis gangguan atau m
+asalah yang menjadi hasil diagnosis. Data solusi 
+menyimpan rekomendasi penanganan untuk setiap jenis kerusakan. Sementara itu, 
+data rule dan detail rule digunakan untuk menghubungkan gejala dengan kerusakan 
+serta solusi yang sesuai. Struktur ini memungkink
+an proses penalaran dilakukan 
+
+--- PAGE BREAK ---
+
+49
+secara sistematis dan mudah diperbarui apabila ditemukan kasus baru di lingkungan 
+kerja.
+Selain menggunakan aturan diagnosis, sistem juga menerapkan mekanisme 
+pembobotan pada setiap gejala yang terdapat dalam suatu rule. Bobot digunakan 
+untuk menunjukkan tingkat kontribusi atau tingkat kepentingan suatu gejala 
+terhadap hasil diagnosis. Semakin
+besar bobot suatu gejala, maka semakin besar 
+pengaruh gejala tersebut dalam menentukan tingkat keyakinan sistem terhadap 
+suatu kerusakan. Dengan adanya pembobotan, sistem tidak hanya bekerja 
+berdasarkan konsep cocok atau tidak cocok (binary matching), tet
+api juga mampu 
+memberikan tingkat kecocokan diagnosis berdasarkan jumlah dan bobot gejala 
+yang terpenuhi.
+Sebagai contoh, rule R02 digunakan untuk mendiagnosis kerusakan printer. 
+Rule tersebut terdiri atas dua gejala, yaitu G03 (printer tidak terdeteksi pada sistem) 
+dan G04 (printer tidak mengeluarkan hasil cetak). Apabila kedua gejala tersebut 
+ditemukan pada 
+input pengguna, maka sistem akan menghasilkan diagnosis K02 
+(Kerusakan Printer) serta menampilkan solusi S02 yang berisi langkah
+-
+langkah 
+penanganan masalah printer. Aturan tersebut dapat direpresentasikan sebagai 
+berikut.
+R02 : (G03 
+Aturan tersebut menunjukkan bahwa apabila gejala G03 dan G04 terpenuhi, 
+maka sistem akan menyimpulkan bahwa pengguna mengalami kerusakan printer 
+dan akan menampilkan solusi yang sesuai. Dalam implementasinya, sistem juga 
+mempertimbangkan bobot masing
+-
+masin
+g gejala sehingga diagnosis tetap dapat 
+dihasilkan meskipun tidak seluruh gejala dalam rule terpenuhi secara sempurna.
+Penerapan 
+Rule
+-
+Based System 
+pada penelitian ini dinilai sesuai dengan 
+karakteristik permasalahan IT Helpdesk yang umumnya bersifat berulang dan 
+memiliki pola gejala yang dapat diidentifikasi. Melalui pendekatan ini, proses 
+
+--- PAGE BREAK ---
+
+50
+diagnosis dapat dilakukan secara lebih cepat, konsisten, dan terdokumentasi. Selain 
+membantu pengguna memperoleh solusi awal secara mandiri, sistem juga 
+membantu IT Support dalam mengelola pengetahuan troubleshooting sehingga 
+tidak bergantung pada pengalam
+an individu semata. Pengetahuan yang telah 
+tersimpan dalam basis aturan dapat digunakan kembali untuk menangani kasus 
+serupa yang terjadi di masa mendatang.
+Berdasarkan hasil analisis tersebut, 
+Rule
+-
+Based System 
+berperan sebagai inti 
+mekanisme pengambilan keputusan pada sistem IT Helpdesk. Sistem melakukan 
+diagnosis dengan memanfaatkan hubungan antara gejala, aturan, kerusakan, solusi, 
+dan bobot gejala yang tersimpan dalam knowledge base. Pendekatan ini 
+memungkink
+an proses troubleshooting dilakukan secara otomatis, terstruktur, dan 
+sesuai dengan pengetahuan yang dimiliki oleh IT Support perusahaan.
+Gambar 21 menunjukkan data gejala yang tersimpan pada knowledge base 
+sistem. Data gejala berfungsi sebagai fakta awal yang digunakan dalam proses 
+diagnosis. Setiap gejala memiliki kode unik yang akan dicocokkan dengan aturan 
+(rule) yang tersimpan pada sist
+em untuk menentukan kemungkinan jenis kerusakan 
+yang dialami pengguna.
+Gambar  
+22
+Tampilan data gejala
+
+--- PAGE BREAK ---
+
+51
+Pada gambar ini menunjukkan data kerusakan dan solusi yang menjadi 
+bagian dari knowledge base sistem. Data kerusakan berisi kategori permasalahan 
+yang dapat didiagnosis oleh sistem, sedangkan data solusi berisi rekomendasi 
+penanganan yang akan ditampilkan 
+kepada pengguna setelah proses diagnosis 
+selesai dilakukan.
+Gambar 23 menunjukkan aturan diagnosis yang menghubungkan gejala 
+dengan jenis kerusakan tertentu. Setiap rule terdiri atas beberapa gejala yang 
+memiliki nilai bobot sesuai tingkat pengaruhnya terhadap hasil diagnosis. Rule dan 
+Gambar  
+23
+data kerusakan dan solusi
+Gambar  
+24
+data rule dan bobot
+
+--- PAGE BREAK ---
+
+52
+bobot gejala tersebut menjadi dasar sistem dalam menentukan tingkat kecocokan 
+dan menghasilkan diagnosis yang paling relevan.
+.
+Gambar 24 menunjukkan proses input gejala oleh pengguna melalui fitur 
+diagnosis. Gejala yang dimasukkan akan dicocokkan dengan data gejala pada 
+knowledge base, kemudian sistem melakukan pencarian rule yang sesuai untuk 
+menentukan jenis kerusakan dan solusi
+yang direkomendasikan.
+4.2.
+1
+Analisis Analisis Proses 
+Forward Chaining
+Pada sistem ini, proses inferensi dimulai ketika pengguna memasukkan 
+kendala atau keluhan IT melalui 
+search bar
+pada dashboard user. Input keluhan 
+tersebut kemudian diproses oleh sistem untuk menemukan gejala yang paling sesuai 
+dengan data yang tersimpan dalam 
+knowledge base
+. Gejala yang berhasil dikenali 
+dari input pengguna inilah yang menjadi fakta awal atau 
+initial facts
+bagi sistem. 
+Setelah fakta awal diperoleh, sistem mengambil data dari tabel rules dan gejala_rule 
+yang tersimpan pada database Supabase
+. Tabel rules digunakan untuk membaca 
+kemungkinan kerusakan dan solusi, sedangkan tabel gejala_rule digunakan untuk 
+mengetahui daftar gejala yang menjadi kondisi pada setiap rule beserta bobotnya.
+Tahap pertama dalam proses 
+Forward Chaining
+adalah membaca input 
+keluhan dari pengguna. Pada sistem ini, pengguna tidak memilih gejala secara 
+Gambar  
+25
+Contoh input gejala
+
+--- PAGE BREAK ---
+
+53
+langsung, tetapi mengetikkan kendala yang dialami melalui 
+search bar
+. Misalnya, 
+pengguna memasukkan keluhan &#x201C;printer tidak terdeteksi dan tidak bisa 
+mencetak. Input tersebut kemudian diproses oleh sistem untuk mengenali gejala 
+yang sesuai dalam basis pengetahuan, yaitu G03 &#x201C;printer tidak terdeteksi 
+pada siste
+m dan G04 &#x201C;printer tidak mengeluarkan hasil cetak. Gejala yang 
+berhasil dikenali tersebut selanjutnya digunakan sebagai fakta awal yang akan 
+dibandingkan dengan aturan pada basis pe
+ngetahuan.
+Tahap kedua adalah proses pencocokan fakta dengan rule. Sistem membaca 
+setiap rule satu per satu, lalu membandingkan gejala yang dipilih pengguna dengan 
+daftar gejala pada rule tersebut. Apabila terdapat gejala yang sama, maka rule 
+tersebut dianggap memili
+ki kecocokan awal. Semakin banyak gejala yang cocok, 
+semakin besar kemungkinan rule tersebut menjadi hasil diagnosis yang relevan. 
+Pada tahap ini, sistem juga membaca bobot dari setiap gejala yang cocok untuk 
+digunakan dalam perhitungan 
+confidence
+.
+Tahap ketiga adalah menentukan hasil diagnosis berdasarkan rule yang 
+memiliki kecocokan. Jika suatu rule memiliki gejala yang sesuai dengan input 
+pengguna, sistem mengambil data kerusakan dan solusi yang terhubung dengan rule 
+tersebut. Hasil diagnosis kemu
+dian disusun dalam bentuk informasi yang dapat 
+ditampilkan kepada pengguna, meliputi jenis kerusakan, solusi, jumlah gejala yang 
+cocok, total gejala dalam rule, serta nilai 
+confidence
+.
+Sebagai contoh, saat pengguna memasukkan keluhan &#x201C;printer 
+tidak ready (terdeteksi) dan tidak bisa mencetak pada 
+search bar
+. Sistem kemudian 
+mengidentifikasi keluhan tersebut sebagai gejala G03 dan G04. Setelah itu, sistem 
+menelusuri basis pengetahuan dan menemukan 
+rule
+R02. 
+Rule
+R02 memiliki 
+kondisi G03 dan G04, sehingga seluruh gejala pada 
+rule
+tersebut cocok dengan hasil 
+identifikasi input pengguna. Berdasarkan kecocokan tersebut, sistem menghasilkan 
+diagnosis K02, yaitu kerusakan printer, dan mena
+mpilkan solusi S02 berupa 
+pemeriksaan 
+driver
+printer, koneksi USB atau jaringan, serta pengujian cetak. 
+Proses tersebut dapat digambarkan dengan alur sebagai berikut.
+Input pengguna:
+&#x201C;Printer tidak terdeteksi dan tidak bisa mencetak.
+
+--- PAGE BREAK ---
+
+54
+Gejala yang teridentifikasi oleh sistem:
+G03 = Printer tidak terdeteksi pada sistem
+G04 = Printer tidak mengeluarkan hasil cetak
+Rule yang diperiksa:
+Hasil pencocokan:
+G03 cocok
+G04 cocok
+Kesimpulan sistem:
+K02 = Kerusakan Printer
+S02 = Solusi penanganan printer
+Confidence
+= 100%
+Dalam implementasi program, proses 
+Forward Chaining
+dilakukan dengan 
+mengambil seluruh data rule aktif dari database, kemudian melakukan proses 
+perulangan terhadap setiap rule. Pada setiap perulangan, sistem mengecek apakah 
+gejala yang dipilih pengguna terdapat dalam daftar gejala milik rule tersebut. Jika
+terdapat gejala yang cocok, sistem menjumlahkan bobot gejala yang terpenuhi dan 
+membandingkannya dengan total bobot pada rule. Hasil perhitungan tersebut 
+digunakan untuk menentukan tingkat keyakinan diagn
+osis.
+Secara logika, proses yang dijalankan sistem dapat dijelaskan sebagai berikut.
+1.
+Sistem menerima daftar gejala yang dipilih pengguna. 
+2.
+Sistem mengambil data rule dari database. 
+3.
+Sistem membaca daftar gejala pada setiap rule. 
+4.
+Sistem membandingkan gejala input dengan gejala pada rule. 
+
+--- PAGE BREAK ---
+
+55
+5.
+Sistem menghitung gejala yang cocok dan bobot yang terpenuhi. 
+6.
+Sistem menghasilkan diagnosis berdasarkan rule yang memiliki kecocokan. 
+7.
+Sistem mengurutkan hasil diagnosis berdasarkan nilai 
+confidence
+tertinggi. 
+8.
+Jika tidak ada rule yang cocok, sistem mengarahkan laporan ke proses 
+ticketing. 
+Jika pengguna hanya memilih sebagian gejala, sistem tetap dapat 
+memberikan kemungkinan diagnosis selama terdapat gejala yang cocok dengan 
+salah satu rule. Misalnya, pengguna hanya memilih G03. Sistem tetap dapat 
+mengarah pada rule R02 karena G03 merupakan 
+salah satu gejala pada rule tersebut. 
+Namun, nilai 
+confidence
+yang dihasilkan tidak mencapai 100% karena tidak semua 
+gejala pada rule terpenuhi. Hal ini menunjukkan bahwa proses 
+Forward Chaining
+pada sistem tidak hanya bekerja secara mutlak, tetapi juga di
+dukung oleh 
+pembobotan untuk menampilkan tingkat keyakinan diagnosis.
+Apabila sistem tidak menemukan gejala yang cocok dengan rule manapun, 
+maka sistem tidak memaksakan diagnosis. Dalam kondisi tersebut, laporan 
+pengguna diarahkan ke fitur 
+ticketing
+agar dapat ditinjau langsung oleh IT Support. 
+Mekanisme ini penting karena tidak semua permasalahan IT dapat langsung 
+diselesaikan berdasarkan rule yang tersedia. Hasil penanganan dari IT Support 
+nantinya dapat digunakan sebagai bahan pembaruan 
+knowledge base
+, misalnya 
+dengan menambahkan gejala baru, rule baru, atau solusi baru.
+Berdasarkan penerapan tersebut, metode 
+Forward Chaining
+dalam sistem 
+ini telah berjalan sebagai mesin inferensi yang menelusuri fakta menuju 
+kesimpulan. Fakta awal berasal dari gejala pengguna, sedangkan kesimpulan 
+dihasilkan melalui pencocokan terhadap rule pada basis pengetahuan. Dengan alur 
+ini, hasil diagn
+osis yang ditampilkan sistem memiliki dasar penalaran yang jelas, 
+dapat ditelusuri, dan sesuai dengan konsep sistem pakar berbasis aturan.
+
+--- PAGE BREAK ---
+
+56
+4.2.
+2
+Analisis Penerapan 
+Confidence
+Diagnosis
+Perhitungan 
+confidence
+diagnosis
+pada sistem IT Helpdesk digunakan 
+untuk menunjukkan tingkat keyakinan sistem terhadap hasil diagnosis yang 
+diberikan. Perlu ditegaskan bahwa 
+confidence
+diagnosis
+bukan merupakan metode 
+utama dalam proses diagnosis, melainkan mekanisme pendukung dari metode 
+Forward Chaining
+. Metode 
+Forward Chaining
+tetap menjadi dasar utama proses 
+inferensi karena sistem menelusuri fakta awal berupa gejala menuju kesimpulan 
+berupa jenis kerusakan dan solusi. Sementara itu, pembobotan gejala d
+igunakan 
+untuk mengukur seberapa kuat kecocokan antara gejala yang dipilih pengguna 
+dengan kondisi pada suatu rule.
+Pembobotan gejala disimpan pada tabel gejala_rule. Setiap gejala dalam 
+suatu rule memiliki nilai bobot yang berbeda, sesuai dengan tingkat pengaruhnya 
+terhadap jenis kerusakan tertentu. Gejala yang memiliki hubungan lebih kuat 
+dengan suatu kerusakan diberi
+kan bobot lebih besar, sedangkan gejala yang bersifat 
+pendukung diberikan bobot lebih kecil. Total bobot dalam satu rule ditetapkan 
+sebesar 100 agar hasil perhitungan dapat ditampilkan dalam bentuk persentase.
+Nilai 
+confidence
+dalam sistem ini dipahami sebagai indikator tingkat 
+kecocokan, bukan sebagai kepastian mutlak bahwa suatu kerusakan pasti terjadi. 
+Dengan kata lain, 
+confidence
+menunjukkan seberapa kuat gejala yang dipilih 
+pengguna mendukung hasil diagnosis yang diperoleh melalui proses 
+Forward 
+Chaining
+. Hal ini penting karena dalam praktiknya pengguna tidak selalu 
+mengetahui atau memilih seluruh gejala yang sesuai dengan suatu rule. Rumus 
+perhitungan 
+confidence
+yang digunakan adalah sebagai berikut.
+Sebagai contoh, pada rule R12 untuk kerusakan jaringan atau internet 
+terdapat dua gejala, yaitu G32 dan G33. Gejala G32, yaitu jaringan Wi
+-
+Fi tidak 
+terhubung, memiliki bobot 60 karena kondisi ini menjadi indikator utama bahwa 
+perangkat belum berhasil tersa
+mbung ke jaringan. Sementara itu, G33, yaitu 
+koneksi internet terputus
+-
+putus, memiliki bobot 40 karena gejala tersebut dapat 
+
+--- PAGE BREAK ---
+
+57
+menunjukkan gangguan jaringan, tetapi masih dapat disebabkan oleh faktor lain 
+seperti kualitas sinyal, beban jaringan, atau gangguan sementara pada router. 
+Jika sistem berhasil mengidentifikasi gejala G32 dan G33 dari input keluhan 
+pengguna, maka seluruh kondisi pada rule R12 terpenuhi. Misalnya, pengguna 
+memasukkan keluhan &#x201C;Wi
+-
+Fi tidak bisa tersambung dan koneksi internet 
+sering terputus. Input terseb
+ut kemudian dikenali sistem sebagai G32, yaitu jaringan 
+Wi
+-
+Fi tidak terhubung, dan G33, yaitu koneksi internet terputus
+-
+putus. Perhitungan 
+confidence
+adalah sebagai berikut.
+Hasil tersebut menunjukkan bahwa sistem memiliki tingkat keyakinan 100% 
+terhadap diagnosis kerusakan jaringan atau internet karena seluruh gejala pada rule 
+terpenuhi. Dengan demikian, sistem menampilkan diagnosis K11, yaitu kerusakan 
+jaringan/internet, bes
+erta solusi S11 yang berkaitan dengan pemeriksaan router, 
+koneksi Wi
+-
+Fi, IP address, dan pembatasan jaringan oleh firewall.
+Jika sistem hanya berhasil mengidentifikasi G32 dari input keluhan 
+pengguna, maka sistem tetap dapat memberikan kemungkinan diagnosis kerusakan 
+jaringan atau internet karena G32 merupakan bagian dari rule R12
+Namun, nilai 
+confidence
+yang dihasilkan lebih rendah karena tidak seluruh gejala 
+pada rule terpenuhi.Perhitungannya adalah sebagai berikut. 
+Nilai 60% menunjukkan bahwa sistem memiliki kecocokan awal terhadap 
+kemungkinan kerusakan jaringan atau internet, tetapi hasil diagnosis masih 
+membutuhkan konfirmasi tambahan. Dalam kasus ini, gejala G33 belum terpenuhi, 
+sehingga sistem belum dapat memberi
+kan tingkat keyakinan penuh terhadap 
+diagnosis tersebut.
+Apabila pengguna hanya memilih G33, maka nilai 
+confidence
+yang 
+dihasilkan adalah sebagai berikut.
+
+--- PAGE BREAK ---
+
+58
+Nilai 40% menunjukkan bahwa kemungkinan diagnosis kerusakan jaringan atau 
+internet masih lebih lemah dibandingkan ketika sistem berhasil mengidentifikasi 
+G32. Hal ini karena koneksi internet yang terputus
+-
+putus dapat disebabkan oleh 
+beberapa faktor dan bel
+um tentu menunjukkan bahwa perangkat benar
+-
+benar gagal 
+terhubung ke jaringan.
+Dalam implementasi sistem, perhitungan 
+confidence
+dilakukan setelah 
+proses pencocokan gejala dengan rule. Sistem menjumlahkan bobot gejala yang 
+cocok, kemudian membandingkannya dengan total bobot pada rule. Setelah seluruh 
+rule diperiksa, sistem mengurutkan hasil diagnosis berdasarkan nilai 
+confidence
+tertinggi. Dengan demikian, apabila terdapat lebih dari satu kemungkinan 
+diagnosis, sistem akan menampilkan hasil yang paling relevan pada urutan teratas.
+Penerapan 
+confidence
+diagnosis
+membuat hasil sistem menjadi lebih 
+informatif. Pengguna tidak hanya menerima diagnosis dan solusi, tetapi juga dapat 
+melihat tingkat keyakinan dari hasil yang diberikan. Bagi IT Support, nilai 
+confidence
+dapat membantu dalam membaca seberapa kuat suatu laporan mengarah 
+pada jenis kerusakan tertentu, terutama ketika gejala yang dimasukkan pengguna 
+belum lengkap.
+Berdasarkan penjelasan tersebut, dapat ditegaskan bahwa metode utama 
+dalam sistem ini adalah 
+Forward Chaining
+, sedangkan pembobotan gejala dan 
+confidence
+diagnosis
+berperan sebagai pelengkap. Keduanya digunakan untuk 
+membuat hasil diagnosis lebih terukur, fleksibel, dan mudah dipahami, tanpa 
+mengubah prinsip dasar inferensi berbasis aturan yang digunakan oleh sistem.
+4.2.
+3
+Contoh Kasus Penerapan Algoritma
+Contoh kasus penggunaan algoritma dilakukan untuk melihat bagaimana 
+sistem memproses gejala yang dipilih pengguna hingga menghasilkan diagnosis. 
+Pada bagian ini digunakan contoh kasus permasalahan jaringan atau internet, karena 
+jenis masalah ini cukup seri
+ng terjadi dalam lingkungan kerja dan memiliki rule 
+yang jelas pada basis pengetahuan sistem.
+
+--- PAGE BREAK ---
+
+59
+Pada skenario ini, pengguna mengalami kendala berupa perangkat tidak 
+dapat terhubung ke jaringan Wi
+-
+Fi dan koneksi internet sering terputus. 
+Berdasarkan kondisi tersebut, pengguna menginputkanpe dua gejala pada sistem, 
+yaitu G32 &#x201C;jaringan Wi
+-
+Fi tida
+k terhubung dan G33 &#x201C;koneksi 
+internet terputus
+-
+putus. Kedua gejala tersebut kemudian diproses oleh sistem 
+sebagai fakta awal.
+Sistem selanjutnya membaca basis pengetahuan yang tersimpan pada 
+database. Pada proses pencocokan, sistem menemukan rule R12 yang memiliki 
+hubungan dengan kedua gejala tersebut. Rule R12 mengarah pada K11, yaitu 
+kerusakan jaringan atau internet, dengan sol
+usi S11. Struktur rule tersebut dapat 
+dituliskan sebagai berikut.
+Setelah sistem menemukan rule yang sesuai, sistem menghitung jumlah bobot 
+gejala yang cocok. Pada rule R12, G32 memiliki bobot 60 dan G33 memiliki bobot 
+40. Karena sistem berhasil mengidentifikasi kedua gejala tersebut dari input 
+keluhan pengguna, maka tot
+al bobot gejala yang cocok adalah 100. Dengan 
+demikian, nilai 
+confidence
+yang dihasilkan adalah 100%.
+Hasil diagnosis yang ditampilkan sistem adalah K11, yaitu kerusakan 
+jaringan atau internet. Solusi yang diberikan adalah memeriksa router dan koneksi 
+Wi
+-
+Fi, memastikan IP address sudah benar, serta memastikan jaringan tidak 
+dibatasi oleh firewall. Hasil in
+i menunjukkan bahwa sistem berhasil mengubah 
+input gejala menjadi diagnosis dan rekomendasi solusi berdasarkan rule yang 
+tersimpan dalam 
+knowledge base
+.
+Selain skenario dengan gejala lengkap, sistem juga dapat menangani gejala 
+yang belum lengkap. Misalnya, pengguna hanya memilih G32, yaitu jaringan WiFi 
+tidak terhubung. Pada kondisi ini, sistem tetap dapat menemukan rule R12 karena 
+G32 merupakan bagian dar
+i rule tersebut. Namun, nilai 
+confidence
+yang 
+ditampilkan hanya sebesar 60%, karena gejala G33 belum terpenuhi. Hasil ini 
+menunjukkan bahwa sistem tetap mampu memberikan kemungkinan diagnosis 
+awal, tetapi dengan tingkat keyakinan yang lebih rendah.
+
+--- PAGE BREAK ---
+
+60
+Dengan adanya contoh kasus ini, dapat dilihat bahwa proses algoritma 
+berjalan melalui tiga tahap utama, yaitu menerima gejala dari pengguna, 
+mencocokkan gejala tersebut dengan rule, dan menghitung nilai 
+confidence
+berdasarkan bobot gejala yang cocok.Alur ini memperlihatkan bahwa sistem tidak 
+hanya menampilkan solusi secara langsung, tetapi melakukan proses penalaran 
+berbasis aturan sebelum menghasilkan diagnosis
+.
+4.2.
+4
+Analisis Ticketing untuk Kasus Tidak Terdiagnosis
+Fitur ticketing pada sistem IT Helpdesk digunakan sebagai mekanisme 
+tindak lanjut apabila sistem tidak dapat menghasilkan diagnosis otomatis 
+berdasarkan rule yang tersedia. Mekanisme ini diperlukan karena tidak semua 
+permasalahan IT dapat langsung dikenali
+oleh sistem, terutama jika keluhan 
+pengguna belum memiliki padanan gejala atau aturan pada 
+knowledge base
+.
+Pada sistem yang dikembangkan, proses 
+ticketing
+dimulai ketika pengguna 
+memasukkan keluhan melalui 
+search bar
+, tetapi sistem tidak berhasil menemukan 
+gejala yang sesuai pada basis pengetahuan. Kondisi ini menunjukkan bahwa 
+keluhan tersebut belum dapat diproses oleh metode 
+Forward Chaining
+karena fakta 
+awal yang dibutuhkan sistem tidak tersedia. Selain itu, ticketing juga dapat 
+digunakan ketika gejala berhasil dikenali, tetapi hasil diagnosis masih memiliki 
+tingkat keyakinan rendah sehingga membutuhkan pemer
+iksaan lebih lanjut oleh IT 
+Support.
+Sebagai contoh, pengguna memasukkan keluhan &#x201C;web 
+scan.peb.co.id muncul error 502 saat dibuka. Jika keluhan tersebut belum memiliki 
+data gejala, rule, atau solusi pada 
+knowledge base
+, sistem tidak akan memaksakan 
+diagnosis. Sebaliknya, sistem akan mengarahkan pengguna untuk membuat tiket 
+agar permasalahan dapat diperiksa secara manual oleh IT Support. Dengan cara ini, 
+setiap laporan tetap tercatat dan tidak berhenti hanya karena siste
+m belum mampu 
+memberikan diagnosis otomatis.
+Data tiket yang dibuat pengguna disimpan pada tabel tiket. Tabel ini 
+memuat informasi seperti identitas pengguna, subjek keluhan, deskripsi masalah, 
+status tiket, prioritas, serta respons dari IT Support. Status tiket dapat digunakan 
+untuk memantau proses 
+penanganan, misalnya open, on_progress, resolved, atau 
+
+--- PAGE BREAK ---
+
+61
+closed. Dengan adanya status tersebut, pengguna dapat mengetahui perkembangan 
+laporan yang telah dibuat, sedangkan IT Support dapat mengelola prioritas 
+penanganan dengan lebih terstruktur.
+Fitur 
+ticketing
+juga berperan penting dalam proses 
+pembaruan knowledge 
+base
+. Setelah IT Support menyelesaikan suatu tiket, hasil penanganan dapat 
+dianalisis untuk menentukan apakah kasus tersebut perlu ditambahkan sebagai 
+gejala baru, rule baru, atau solusi baru. Jika masalah yang sama berpotensi muncul 
+kembali, maka data dari ti
+ket tersebut dapat digunakan untuk memperkaya basis 
+pengetahuan sistem. Dengan demikian, ticketing tidak hanya berfungsi sebagai fitur 
+pelaporan manual, tetapi juga sebagai sumber p
+embelajaran bagi pengembangan 
+sistem.
+Hubungan antara 
+ticketing
+dan 
+knowledge base
+membuat sistem menjadi 
+lebih adaptif. Pada tahap awal, sistem mungkin belum mampu mengenali semua 
+jenis permasalahan IT. Namun, melalui laporan tiket yang ditindaklanjuti oleh IT 
+Support, sistem dapat diperbarui secara bertahap. Proses ini mendukung tujua
+n 
+pengembangan sistem, yaitu mengurangi ketergantungan pada pengalaman 
+individu dan menjadikan pengetahuan teknis lebih terdokumentasi.
+Berdasarkan analisis tersebut, fitur ticketing menjadi komponen pendukung 
+yang melengkapi proses diagnosis otomatis. Metode 
+Forward Chaining
+digunakan 
+untuk menangani kasus yang sudah memiliki aturan dalam basis pengetahuan, 
+sedangkan ticketing digunakan untuk menangani kasus yang belum terwakili oleh 
+aturan. Dengan kombinasi ini, sistem tetap dapat memberikan layanan kepada 
+pengguna, baik mel
+alui diagnosis otomatis maupun melalui penanganan manual 
+oleh IT Support.
+
+--- PAGE BREAK ---
+
+62
+4.2.
+5
+Evaluasi Hasil Diagnosis Sistem
+Evaluasi hasil diagnosis dilakukan untuk melihat sejauh mana sistem IT 
+Helpdesk mampu menghasilkan diagnosis yang sesuai berdasarkan keluhan yang 
+dimasukkan pengguna. Proses evaluasi dilakukan dengan membandingkan hasil 
+diagnosis yang diberikan sistem deng
+an hasil analisis dari IT Support sebagai 
+pembanding. Evaluasi ini bertujuan untuk mengetahui apakah penerapan metode 
+Forward Chaining
+dan pembobotan gejala pada sistem sudah berjalan sesuai 
+dengan tujuan pengembangan.
+Pada sistem yang dikembangkan, pengguna memasukkan kendala melalui 
+search bar. Input tersebut kemudian diproses untuk mengidentifikasi gejala yang 
+sesuai pada 
+knowledge base
+. Gejala yang berhasil dikenali menjadi fakta awal 
+dalam proses inferensi 
+Forward Chaining
+. Setelah proses pencocokan rule selesai 
+dilakukan, sistem menghasilkan diagnosis beserta nilai 
+confidence
+sebagai 
+indikator tingkat keyakinan.
+Pengujian dilakukan menggunakan beberapa contoh keluhan yang umum 
+ditemukan pada lingkungan kerja, seperti masalah jaringan, printer, server internal, 
+dan aplikasi operasional. Hasil diagnosis sistem kemudian dibandingkan dengan 
+diagnosis yang diberikan ol
+eh IT Support berdasarkan pengalaman 
+troubleshooting
+secara langsung.
+Tabel 
+8
+.Hasil Diagnosis Sistem
+No
+Input Keluhan 
+Pengguna
+Gejala 
+yang 
+Teriden
+tifikasi
+Hasil Diagnosis 
+Sistem
+Confid
+ence
+Hasil 
+Analisis IT 
+Support
+1
+Koneksi WiFi tidak 
+terhubung dan 
+internet terputus
+G32, 
+G33
+Kerusakan 
+Jaringan/Internet
+45,3%
+Sesuai
+
+--- PAGE BREAK ---
+
+63
+2
+Printer tidak 
+terdeteksi dan tidak 
+bisa mencetak
+G03, 
+G04
+Kerusakan Printer
+52.5%
+Sesuai
+3
+Laptop sangat 
+lambat dan sering 
+hang saat membuka 
+aplikasi
+G16, 
+G17
+Pemeriksaan lebih 
+lanjut, Restart (mulai 
+ulang laptop)
+78.8%
+Cukup 
+Sesuai
+4
+Website 
+scan.peb.co.id tidak 
+dapat diakses
+G39
+Pastikan koneksi 
+internet stabil; 
+periksa status server 
+XAMPP/database 
+pada PC server; 
+restart service jika 
+diperlukan
+60%
+Sesuai
+Berdasarkan hasil evaluasi tersebut, sistem mampu menghasilkan diagnosis 
+yang sesuai pada sebagian besar kasus yang diuji. Tingkat kesesuaian yang tinggi 
+terjadi ketika input keluhan pengguna berhasil diidentifikasi menjadi gejala yang 
+lengkap dan sesuai d
+engan rule pada basis pengetahuan. Sebaliknya, nilai 
+confidence
+cenderung lebih rendah ketika sistem hanya berhasil mengenali 
+sebagian gejala dari suatu pola kerusakan.
+Hasil evaluasi juga menunjukkan bahwa pembobotan gejala membantu 
+sistem dalam memberikan prioritas terhadap kemungkinan diagnosis yang paling 
+relevan. Gejala yang memiliki pengaruh lebih besar terhadap suatu kerusakan 
+menghasilkan nilai 
+confidence
+yang lebih tinggi dibandingkan gejala pendukung. 
+Dengan demikian, hasil diagnosis tidak hanya bergantung pada jumlah gejala yang 
+cocok, tetapi juga pada tingkat pengaruh masing
+-
+masing gejala.
+Meskipun demikian, sistem masih memiliki keterbatasan dalam mengenali 
+variasi bahasa atau istilah yang berbeda dari input pengguna. Pada beberapa 
+kondisi, pengguna dapat menuliskan keluhan dengan istilah yang tidak sepenuhnya 
+sesuai dengan data gejala pada
+knowledge base
+. Hal ini dapat menyebabkan sistem 
+hanya mengenali sebagian gejala atau bahkan tidak menemukan rule yang cocok. 
+
+--- PAGE BREAK ---
+
+64
+Oleh karena itu, pembaruan basis pengetahuan dan penambahan variasi kata kunci 
+masih diperlukan agar sistem dapat mengenali lebih banyak pola keluhan.
+Secara keseluruhan, hasil evaluasi menunjukkan bahwa penerapan metode 
+Forward Chaining
+pada sistem IT Helpdesk mampu membantu proses diagnosis 
+masalah IT secara lebih cepat dan terstruktur. Penambahan pembobotan gejala dan 
+confidence
+diagnosis
+juga membuat hasil yang diberikan sistem menjadi lebih 
+informatif dan fleksibel, terutama ketika input keluhan dari pengguna belum 
+sepenuhnya lengkap.
+4.3. Pengujian Sistem
+Pengujian sistem dilakukan untuk memverifikasi bahwa seluruh fungsi yang 
+dikembangkan berjalan sesuai dengan spesifikasi kebutuhan. Terdapat dua jenis 
+pengujian yang dilakukan dalam penelitian ini, yaitu 
+Black Box Testing 
+yang 
+dilaksanakan oleh pengembang untuk memvalidasi fungsi sistem secara teknis, 
+serta 
+User Acceptance Test
+ing (UAT) yang dilakukan oleh pengguna nyata di 
+lingkungan PT. PLN Pelayanan Energi Batam untuk menilai kesesuaian sistem 
+dengan kebutuhan operasional.
+4.3.1 Black Box Testing
+Black Box Testing 
+dilakukan untuk memverifikasi bahwa setiap fungsi 
+sistem menghasilkan output yang sesuai dengan yang diharapkan berdasarkan input 
+yang diberikan. Pengujian ini berfokus pada perilaku sistem dari sudut pandang 
+pengguna tanpa memperhatikan struktur internal 
+kode program. Metode yang 
+digunakan adalah Equivalence Partitioning, yaitu membagi data masukan ke dalam 
+kelompok
+-
+kelompok yang mewakili semua kemungkinan masukan, baik data valid 
+maupun tidak valid.
+Pengujian dilakukan terhadap 26 skenario uji yang mencakup 6 modul 
+utama sistem, yaitu modul Autentikasi, Diagnosis Otomatis, Ticketing (User), 
+Ticketing (IT Support), Knowledge Base, serta Keamanan dan Akses. Hasil 
+selengkapnya disajikan pada tabel beriku
+t.
+
+--- PAGE BREAK ---
+
+65
+Tabel 
+9
+. Pengujian Black Box
+No.
+ID Uji
+Modul
+Skenario 
+Pengujian
+Data Input
+Output yang 
+Diharapkan
+Output 
+Aktual
+Status
+1
+BB
+-
+01
+Autentikasi
+Login 
+email & 
+password 
+valid
+Email: 
+user@peb.co
+.id, Password 
+valid
+Dashboard 
+sesuai role 
+ditampilkan
+Dashboar
+d User/IT 
+Support 
+tampil
+Berhasil
+2
+BB
+-
+02
+Autentikasi
+Login 
+password 
+salah
+Email valid, 
+password 
+salah
+Muncul 
+pesan error 
+login
+Sistem 
+tampilkan 
+pesan 
+kesalahan
+Berhasil
+3
+BB
+-
+03
+Autentikasi
+Login 
+email 
+tidak 
+terdaftar
+Email tidak 
+ada di sistem
+Muncul 
+pesan akun 
+tidak 
+ditemukan
+Sistem 
+tampilkan 
+pesan 
+akun tidak 
+ditemuka
+n
+Berhasil
+4
+BB
+-
+04
+Autentikasi
+Login 
+kolom 
+email 
+kosong
+Email 
+kosong, 
+password 
+diisi
+Validasi: 
+email tidak 
+boleh kosong
+Sistem 
+cegah 
+submit & 
+tampilkan 
+validasi
+Berhasil
+5
+BB
+-
+05
+Autentikasi
+Register 
+akun baru 
+data 
+lengkap
+Nama, Email 
+baru, 
+Password, 
+Role: User
+Akun dibuat, 
+redirect ke 
+login
+Akun 
+terdaftar 
+& redirect 
+ke 
+halaman 
+login
+Berhasil
+6
+BB
+-
+06
+Autentikasi
+Register 
+email 
+sudah 
+terdaftar
+Email yang 
+sudah ada di 
+sistem
+Muncul 
+pesan email 
+sudah 
+digunakan
+Sistem 
+tampilkan 
+pesan 
+email 
+duplikat
+Berhasil
+7
+BB
+-
+07
+Autentikasi
+Logout 
+dari 
+sistem
+Klik tombol 
+Logout
+Sesi berakhir, 
+redirect ke 
+login
+Sistem 
+logout & 
+redirect 
+ke login
+Berhasil
+8
+BB
+-
+08
+Diagnosis
+Input 
+keluhan 
+cocok 
+dengan 
+rule
+Keluhan: 
+printer tidak 
+terdeteksi 
+dan driver 
+error
+Tampil 
+diagnosis + 
+solusi + 
+confidence
+Diagnosis
+: Printer 
+Offline, 
+Confidenc
+e
+85%
+Berhasil
+9
+BB
+-
+09
+Diagnosis
+Input 
+keluhan 
+gejala 
+parsial
+Keluhan: 
+printer tidak 
+terdeteksi (1 
+gejala)
+Diagnosis 
+tampil 
+dengan 
+confidence
+lebih rendah
+Diagnosis 
+tampil, 
+Confidenc
+e
+40%
+Berhasil
+
+--- PAGE BREAK ---
+
+66
+No.
+ID Uji
+Modul
+Skenario 
+Pengujian
+Data Input
+Output yang 
+Diharapkan
+Output 
+Aktual
+Status
+10
+BB
+-
+10
+Diagnosis
+Input 
+keluhan 
+tidak 
+cocok rule 
+manapun
+Keluhan: 
+mesin kasir 
+rusak
+Opsi buat 
+tiket muncul, 
+tidak ada 
+diagnosis
+Tidak ada 
+diagnosis, 
+tombol 
+Buat 
+Tiket 
+muncul
+Berhasil
+11
+BB
+-
+11
+Diagnosis
+Input 
+keluhan 
+kosong
+Kolom 
+keluhan 
+kosong
+Validasi 
+muncul, 
+submit 
+dicegah
+Sistem 
+tampilkan 
+pesan 
+kolom 
+tidak 
+boleh 
+kosong
+Berhasil
+12
+BB
+-
+12
+Diagnosis
+Diagnosis 
+gejala 
+WiFi tidak 
+connect
+Keluhan: 
+wifi tidak 
+bisa connect, 
+ikon tanda 
+seru
+Diagnosis 
+jaringan + 
+solusi 
+ditampilkan
+Diagnosis
+: Masalah 
+Koneksi 
+WiFi, 
+Confidenc
+e
+80%
+Berhasil
+13
+BB
+-
+13
+Diagnosis
+Diagnosis 
+gejala 
+VPN tidak 
+bisa akses
+Keluhan: 
+vpn error, 
+tidak bisa 
+login sistem 
+internal
+Diagnosis 
+VPN + solusi 
+ditampilkan
+Diagnosis
+: VPN 
+Bermasal
+ah, 
+Confidenc
+e
+75%
+Berhasil
+14
+BB
+-
+14
+Ticketing 
+(User)
+Buat tiket 
+keluhan 
+baru
+Judul, 
+Deskripsi, 
+Prioritas: 
+Tinggi
+Tiket dibuat, 
+status Open
+Tiket 
+tersimpan 
+& muncul 
+di daftar 
+tiket user
+Berhasil
+15
+BB
+-
+15
+Ticketing 
+(User)
+Pantau 
+status tiket
+User buka 
+halaman 
+Tiket Saya
+Daftar tiket 
+& status 
+terkini tampil
+Tiket 
+tampil 
+dengan 
+status & 
+histori 
+update
+Berhasil
+16
+BB
+-
+16
+Ticketing 
+(User)
+Buat tiket 
+tanpa 
+judul
+Judul 
+kosong, 
+deskripsi 
+diisi
+Validasi 
+mencegah 
+submit
+Sistem 
+tampilkan 
+pesan 
+judul tiket 
+wajib diisi
+Berhasil
+17
+BB
+-
+17
+Ticketing 
+(IT 
+Support)
+Lihat 
+semua 
+tiket 
+masuk
+IT Support 
+buka 
+halaman 
+Tiket
+Semua tiket 
+tampil 
+dengan filter 
+status
+Dashboar
+d 
+tampilkan 
+semua 
+tiket, bisa 
+difilter
+Berhasil
+
+--- PAGE BREAK ---
+
+67
+No.
+ID Uji
+Modul
+Skenario 
+Pengujian
+Data Input
+Output yang 
+Diharapkan
+Output 
+Aktual
+Status
+18
+BB
+-
+18
+Ticketing 
+(IT 
+Support)
+Update 
+status tiket 
+In 
+Progress
+Pilih tiket, 
+ubah status
+Status 
+berubah, log 
+histori 
+tersimpan
+Status 
+berubah 
+& log 
+tersimpan
+Berhasil
+19
+BB
+-
+19
+Ticketing 
+(IT 
+Support)
+Tutup 
+tiket 
+dengan 
+solusi
+Isi solusi, set 
+status 
+Resolved
+Tiket 
+tertutup, 
+solusi 
+tersimpan
+Tiket 
+resolved, 
+solusi 
+tampil di 
+detail 
+tiket user
+Berhasil
+20
+BB
+-
+20
+Knowledge 
+Base
+Tambah 
+gejala 
+baru
+Nama: Layar 
+monitor 
+berkedip, 
+Kategori: 
+Hardware
+Gejala 
+tersimpan di 
+basis 
+pengetahuan
+Gejala 
+baru 
+tersimpan 
+& muncul 
+di daftar
+Berhasil
+21
+BB
+-
+21
+Knowledge 
+Base
+Tambah 
+rule baru
+2 gejala, 
+bobot total 
+100
+Rule 
+tersimpan & 
+aktif untuk 
+diagnosis
+Rule 
+terdaftar 
+& bisa 
+digunakan 
+Forward 
+Chaining
+Berhasil
+22
+BB
+-
+22
+Knowledge 
+Base
+Edit bobot 
+gejala 
+pada rule
+Ubah bobot 
+gejala pada 
+rule tertentu
+Perubahan 
+tersimpan, 
+diagnosis 
+pakai bobot 
+baru
+Bobot ter
+-
+update, 
+diagnosis 
+ikut 
+berubah
+Berhasil
+23
+BB
+-
+23
+Knowledge 
+Base
+Hapus 
+gejala 
+tidak 
+digunakan
+Pilih gejala, 
+klik hapus
+Gejala 
+terhapus dari 
+sistem
+Gejala 
+hilang 
+dari daftar
+Berhasil
+24
+BB
+-
+24
+Knowledge 
+Base
+Akses KB 
+Manager 
+oleh User
+User login 
+coba akses 
+halaman KB 
+Manager
+Akses 
+ditolak, 
+pesan error 
+muncul
+Halaman 
+tidak 
+dapat 
+diakses, 
+redirect 
+ke 
+dashboard
+Berhasil
+25
+BB
+-
+25
+Keamanan
+Akses 
+dashboard 
+tanpa 
+login
+Langsung 
+akses URL 
+dashboard 
+tanpa 
+autentikasi
+Sistem 
+arahkan ke 
+halaman 
+login
+Redirect 
+ke login 
+page
+Berhasil
+
+--- PAGE BREAK ---
+
+68
+No.
+ID Uji
+Modul
+Skenario 
+Pengujian
+Data Input
+Output yang 
+Diharapkan
+Output 
+Aktual
+Status
+26
+BB
+-
+26
+Keamanan
+IT 
+Support 
+akses 
+dashboard 
+User
+IT Support 
+login, coba 
+akses 
+dashboard 
+user
+Hanya dapat 
+akses 
+dashboard IT 
+Support
+Role
+-
+based 
+access 
+control 
+berjalan 
+benar
+Berhasil
+Berdasarkan hasil 
+Black Box Testing 
+yang telah dilakukan, seluruh 26 
+skenario uji menunjukkan hasil yang sesuai dengan output yang diharapkan. 
+Rekapitulasi hasil pengujian per modul disajikan pada tabel berikut.
+Tabel 
+10
+. Rekapitulasi Hasil 
+Black Box Testing 
+per Modul
+No.
+Modul Pengujian
+Jumlah 
+Skenario
+Berhasil 
+(Pass)
+Gagal 
+(Fail)
+Persentase
+1
+Autentikasi dan Manajemen 
+Pengguna
+7
+7
+0
+100%
+2
+Pelaporan dan Diagnosis 
+Otomatis
+6
+6
+0
+100%
+3
+Ticketing (User)
+3
+3
+0
+100%
+4
+Ticketing (IT Support)
+3
+3
+0
+100%
+5
+Knowledge Base
+5
+5
+0
+100%
+6
+Keamanan & Akses
+2
+2
+0
+100%
+TOTAL Keseluruhan 
+Sistem
+26
+26
+0
+100%
+Berdasarkan rekapitulasi tersebut, seluruh modul sistem mencapai tingkat 
+keberhasilan 100%. Pengujian modul autentikasi membuktikan sistem mampu 
+membedakan pengguna berdasarkan peran dan menerapkan validasi input secara 
+konsisten. Pengujian modul diagnosis
+memverifikasi bahwa mesin inferensi 
+Forward Chaining
+berhasil mencocokkan gejala dengan aturan yang tersedia serta 
+menghasilkan nilai 
+confidence
+yang proporsional. Pengujian modul ticketing 
+mengonfirmasi alur pembuatan, pemantauan, dan penyelesaian tiket berjalan 
+dengan benar. Pengujian modul knowledge base membuktikan mekanisme 
+pembatasan akses berbasis peran berfungsi sesuai perancangan.
+
+--- PAGE BREAK ---
+
+69
+4.3.2 
+User Acceptance Test
+ing (UAT)
+User Acceptance Test
+ing (UAT) dilakukan untuk memastikan bahwa sistem 
+yang dikembangkan telah memenuhi kebutuhan dan harapan pengguna yang 
+sesungguhnya. Pengujian ini dilaksanakan dengan melibatkan pengguna nyata dari 
+PT. PLN Pelayanan Energi Batam yang mencoba langsung fungs
+i
+-
+fungsi utama 
+sistem dan memberikan penilaian berupa status Pass atau Fail disertai catatan 
+pribadi berdasarkan pengalaman penggunaan.
+Pengujian UAT dilakukan oleh pengguna yang berperan sebagai staf umum 
+maupun staf IT Support. Setiap pengguna diminta untuk mengoperasikan sistem 
+secara mandiri, mulai dari proses login, pelaporan keluhan, melihat hasil diagnosis, 
+membuat tiket, hingga mem
+antau status tiket. Hasil UAT secara lengkap terlampir 
+pada Lampiran C Dokumen Pengujian UAT. Secara keseluruhan, pengguna 
+menyatakan sistem mudah digunakan dan hasil diagnosis yang diberikan sesuai 
+dengan permasalahan IT yang dialami di lingkungan kerja.
+
+--- PAGE BREAK ---
+
+70
+BAB V KESIMPULAN DAN SARAN  
+5.1. Kesimpulan 
+Berdasarkan hasil perancangan, implementasi, dan pengujian Sistem IT 
+Helpdesk berbasis web yang telah dilakukan, diperoleh kesimpulan sebagai berikut:
+Sistem IT Helpdesk berhasil dikembangkan sesuai dengan kebutuhan perusahaan 
+untuk mendukung proses pelaporan dan penanganan permasalahan teknologi 
+informasi secara terpusat. Sistem menyediakan fitur diagnosis gangguan, 
+pengelolaan tiket, serta pengelolaan 
+knowledge base yang dapat digunakan oleh 
+pengguna dan IT Support.
+Penerapan 
+Rule
+-
+Based System 
+berhasil digunakan sebagai mekanisme diagnosis 
+pada sistem. Melalui data gejala, kerusakan, solusi, dan aturan yang tersimpan 
+dalam knowledge base, sistem mampu memberikan hasil diagnosis dan 
+rekomendasi solusi secara otomatis berdasarkan keluhan yang dima
+sukkan oleh 
+pengguna.
+Fitur ticketing berhasil melengkapi proses diagnosis otomatis dengan menyediakan 
+mekanisme pelaporan untuk kasus yang belum dapat dikenali oleh sistem. Dengan 
+adanya fitur ini, setiap permasalahan tetap dapat ditangani oleh IT Support sehingga 
+proses layan
+an kepada pengguna dapat berjalan secara berkelanjutan.
+Berdasarkan hasil pengujian yang telah dilakukan, seluruh fitur utama sistem dapat 
+berjalan sesuai dengan kebutuhan fungsional yang telah ditetapkan. Sistem mampu 
+membantu proses dokumentasi pengetahuan troubleshooting sehingga penanganan 
+masalah menjadi l
+ebih terstruktur dan mudah dikelola.
+Secara keseluruhan, penelitian ini berhasil menghasilkan sistem IT 
+Helpdesk berbasis web yang mampu membantu proses diagnosis awal 
+permasalahan teknologi informasi melalui penerapan 
+Rule
+-
+Based System 
+serta 
+mendukung proses pelaporan melalui fitur ticketing. Hasil pengujian menunjukkan 
+bahwa sistem dapat menjalankan fungsi
+-
+fungsi utama sesuai kebutuhan pengguna 
+dan berpotensi meningkatkan efektivitas penanganan gangguan IT serta 
+dokumentasi pengetahuan 
+troubleshooting di lingkungan perusahaan.
+
+--- PAGE BREAK ---
+
+71
+5.2. Saran 
+Berdasarkan hasil pengembangan sistem yang telah dilakukan, beberapa 
+saran untuk pengembangan selanjutnya adalah sebagai berikut:
+1.
+Menambahkan lebih banyak data gejala, kerusakan, solusi, dan aturan 
+diagnosis agar kemampuan sistem dalam mengenali berbagai permasalahan 
+IT menjadi lebih luas dan akurat.
+2.
+Mengembangkan metode diagnosis dengan mengombinasikan 
+Rule
+-
+Based 
+System 
+dengan metode lain sehingga hasil diagnosis dapat memberikan 
+tingkat keyakinan yang lebih baik.
+3.
+Menambahkan fitur notifikasi otomatis kepada pengguna terkait perubahan 
+status tiket guna meningkatkan efektivitas komunikasi antara pengguna dan 
+IT Support.
+4.
+Melakukan pembaruan knowledge base secara berkala berdasarkan data 
+tiket dan kasus yang telah diselesaikan agar kemampuan diagnosis sistem 
+terus berkembang sesuai kebutuhan operasional perusahaan.
+5.
+Mengintegrasikan sistem dengan layanan atau infrastruktur teknologi 
+informasi lainnya sehingga proses monitoring dan penanganan gangguan 
+dapat dilakukan secara lebih efektif.
+Dengan adanya pengembangan dan penyempurnaan pada berbagai aspek 
+yang telah disarankan, diharapkan sistem IT Helpdesk dapat memberikan manfaat 
+yang lebih optimal serta mampu beradaptasi dengan kebutuhan operasional 
+perusahaan yang terus berkembang. Selain 
+itu, penelitian selanjutnya diharapkan 
+dapat memperluas cakupan knowledge base dan mengembangkan metode diagnosis 
+yang lebih cerdas guna meningkatkan akurasi serta kualitas layanan yang diberikan 
+oleh sistem.
+
+--- PAGE BREAK ---
+
+72
+DAFTAR PUSTAKA
+Forward Chaining
+Journal of Artificial Intelligence 
+Applications
+, vol. 8, no. 1, pp. 44
+56.
+Komputer dan Laptop Menggunakan Metode Dempster Shafer dan 
+Forward 
+Chaining
+Jurnal Teknologi Informasi dan Komputer
+, vol. 12, no. 2, pp. 77
+86.
+Giarratano, J., & Riley, G. (2005). 
+Expert Systems: Principles and Programming
+, 
+4th ed. Boston: PWS Publishing.
+Komputer Menggunakan 
+Forward Chaining
+Jurnal Informatika
+, vol. 9, no. 
+1, pp. 12
+20.
+Pendekatan Knowledge Management System pada Seksi Teknisi PT Indah 
+Journal of Information Systems
+, vol. 4, no. 2, pp. 55
+65.
+Kusrini. (2006). 
+Sistem Pakar: Teori dan Aplikasi
+. Yogyakarta: Andi Offset.
+Kusumadewi, S. (2003). 
+Artificial Intelligence (Teknik dan Aplikasinya)
+. 
+Yogyakarta: Graha Ilmu.
+System Evaluation Using DeLone & McLean Model: A Case Study of IT 
+Journal of Information Systems Research
+, vol. 14, 
+no. 1, pp. 25
+34.
+Journal of Software 
+Engineering Innovation
+, vol. 3, no. 1, pp. 17
+25.
+Pressman, R. S., & Maxim, B. R. (2015). 
+Approach
+, 8th ed. New York: McGraw
+-
+Hill Education.
+Dukungan Tenaga Support serta Pemahaman Karyawan terhadap SOP akan 
+Jurnal Sistem Informasi dan Teknologi
+, 
+vol. 5, no. 3, pp. 112
+120.
+Sommerville, I. (2016). 
+Software Engineering
+, 10th ed. Boston: Pearson.
+Journal of IT Governance
+, vol. 7, no. 2, pp. 
+30
+38.
+Todd, B. S. (1992). 
+An Introduction to Expert Systems
+. Cambridge: Cambridge 
+University Press.
+Usability Evaluation 
+in Industry
+, pp. 189
+194.
+Hambling, B., & van Goethem, P. (2013). 
+User Acceptance Test
+ing: A Step
+-
+by
+-
+Step 
+Guide
+. BCS Learning & Development Limited.
+
+--- PAGE BREAK ---
+
+73
+International Journal of Embedded Systems and 
+Applications (IJESA)
+, vol. 2, no. 2, pp. 29
+50.
+A JavaScript Library for Building User 
+Supabase Inc.
+
+--- PAGE BREAK ---
+
+74
+DAFTAR LAMPIRAN
+Lampiran 
+A
+. 
+Lampiran dalam penelitian ini berisi dokumen pendukung yang digunakan 
+sebagai referensi dalam pengembangan sistem IT Helpdesk berbasis web 
+menggunakan metode 
+Forward Chaining
+. Dokumen lampiran berupa panduan 
+troubleshooting perangkat dan aplikasi teknologi informasi yang dikumpulkan dari 
+pengalaman langsung selama kegiatan magang, dokumentasi internal perusahaan, 
+serta sumber resmi dari masing
+-
+masing vendor perangkat.
+Lampiran ini digunakan sebagai dasar dalam penyusunan basis pengetahuan 
+(knowledge base), khususnya dalam pemetaan gejala, kerusakan, aturan (rules), dan 
+solusi yang diterapkan pada sistem. Seluruh dokumen lampiran disajikan dalam 
+bentuk berkas digital dan
+dapat diakses melalui tautan yang disediakan berikut ini.
+Link lampiran : 
+https://bit.ly/4uNFjZE
+Lampiran 
+B
+Dokumentasi pelaksanaan 
+User Acceptance Test
+ing (UAT) pada sistem IT 
+Helpdesk disimpan dalam bentuk file digital yang berisi skenario pengujian, hasil 
+pengujian, serta bukti dokumentasi pengujian. Seluruh dokumen pendukung UAT 
+dapat diakses melalui link Google Drive berikut sebagai bukti bahwa siste
+m telah 
+melalui proses pengujian oleh pengguna.
+Link Dokumentasi UAT:
+https://bit.ly/44iQFK8
+
+--- PAGE BREAK ---
+
+75
+Lampiran 
+C
+Berikut merupakan b
+ukti
+check plagiarism
+e
+.

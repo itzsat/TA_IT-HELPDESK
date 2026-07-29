@@ -71,6 +71,52 @@ app.get("/make-server-688b6236/health", (c: any) => {
   return c.json({ status: "ok" });
 });
 
+// ============ NOTIFICATION ENDPOINTS ============
+
+// Kirim email notifikasi ke semua IT Support saat tiket baru dibuat
+app.post("/make-server-688b6236/notify-support", requireAuth, async (c: any) => {
+  try {
+    const { ticketId, description, submittedBy } = await c.req.json();
+    const supabase = getSupabaseAdmin();
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    
+    if (!RESEND_API_KEY) {
+      return c.json({ error: "RESEND_API_KEY not configured" }, 500);
+    }
+
+    // Ambil semua user dengan role 'support'
+    const { data: { users }, error } = await supabase.auth.admin.listUsers();
+    if (error) throw error;
+
+    const supportUsers = (users || []).filter(
+      (u: any) => u.user_metadata?.role === 'support' && u.email
+    );
+
+    const results = [];
+    for (const supportUser of supportUsers) {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "IT Helpdesk <onboarding@resend.dev>",
+          to: supportUser.email,
+          subject: `[IT Helpdesk] Tiket Baru Masuk: #${ticketId}`,
+          html: `<h3>Tiket Baru Masuk</h3><p>Dari: <strong>${submittedBy}</strong></p><p>Keluhan:</p><blockquote>${description?.substring(0, 300) || '-'}</blockquote><p>Silakan login ke sistem IT Helpdesk untuk menangani tiket ini.</p>`
+        }),
+      });
+      const data = await res.json();
+      results.push({ email: supportUser.email, success: res.ok, data });
+    }
+
+    return c.json({ success: true, notified: results.length, results });
+  } catch (err: any) {
+    return c.json({ error: err.message }, 500);
+  }
+});
+
 // ============ AUTHENTICATION ENDPOINTS ============
 
 // Sign up

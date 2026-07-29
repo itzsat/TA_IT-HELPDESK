@@ -78,10 +78,9 @@ function runForwardChaining(
       if (!Array.isArray(rule.symptom_codes) || rule.symptom_codes.length === 0) continue;
       const allMet = rule.symptom_codes.every(code => workingMemory.has(code));
       if (allMet) {
-        const userCFs = rule.symptom_codes.map(code => symptomCF.get(code) || 1.0);
-        const avgUserCF = userCFs.reduce((a, b) => a + b, 0) / userCFs.length;
-        const ruleConfidence = rule.confidence || 0.8;
-        const ruleMatchCF = avgUserCF * ruleConfidence;
+        // Sesuai dengan rumus di skripsi: Confidence = (Gejala Cocok / Total Gejala) * 100%
+        // Karena di PASS 1 semua gejala cocok (allMet = true), maka rasio pasti 1.0 (100%)
+        const ruleMatchCF = 1.0;
 
         if (!workingMemory.has(rule.damage_code) || (damageCF.get(rule.damage_code) || 0) < ruleMatchCF) {
           workingMemory.add(rule.damage_code);
@@ -107,10 +106,9 @@ function runForwardChaining(
       const ratio = matched.length / rule.symptom_codes.length;
       
       if (matched.length >= 1 && (rule.symptom_codes.length === 1 || ratio >= 0.5)) {
-        const userCFs = matched.map(code => symptomCF.get(code) || 1.0);
-        const avgUserCF = userCFs.reduce((a, b) => a + b, 0) / userCFs.length;
-        const ruleConfidence = rule.confidence || 0.8;
-        const ruleMatchCF = avgUserCF * ratio * ruleConfidence; // Penalize by ratio
+        // Sesuai dengan rumus di skripsi: Confidence = (Gejala Cocok / Total Gejala) * 100%
+        // Asumsi bobot sama rata untuk setiap gejala karena DB tidak menyimpan bobot per gejala
+        const ruleMatchCF = ratio;
 
         if (ruleMatchCF >= 0.3) {
           workingMemory.add(rule.damage_code);
